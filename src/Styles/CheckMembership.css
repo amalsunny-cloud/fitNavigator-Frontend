@@ -1,0 +1,472 @@
+/* 
+ .membership-container-main {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #f8f9fa, #f1f3f5);
+  min-height: 100vh;
+}
+
+.membership-details {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.membership-section h3 {
+  font-size: 1.75rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.membership-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  border-radius: 2px;
+}
+
+.membership-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.membership-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.membership-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+.membership-card:hover::before {
+  animation: shine 1.5s;
+}
+
+@keyframes shine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+.active-card {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.scheduled-card {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.375rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.active-badge {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  color: #fff;
+}
+
+.scheduled-badge {
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(4px);
+  color: #fff;
+}
+
+.payment-table-container {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.table {
+  margin-bottom: 0;
+  --bs-table-bg: transparent;
+}
+
+.table thead {
+  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  color: white;
+}
+
+.table th {
+  font-weight: 600;
+  padding: 1.25rem;
+  border-bottom: none;
+}
+
+.table td {
+  padding: 1rem;
+  vertical-align: middle;
+  background: rgba(243, 244, 246, 0.3);
+}
+
+.table tbody tr:nth-child(even) td {
+  background: rgba(229, 231, 235, 0.3);
+}
+
+.table tbody tr:hover td {
+  background: rgba(209, 213, 219, 0.3);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-success::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-success:hover::before {
+  left: 100%;
+}
+
+@media (max-width: 768px) {
+  .membership-details {
+    padding: 1.5rem;
+  }
+  
+  .membership-card {
+    padding: 1.5rem;
+  }
+  
+  .table th, .table td {
+    padding: 0.75rem;
+  }
+} */
+
+
+
+
+
+
+
+/* Container for the entire CheckMembership component */
+.membership-container-main {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 32px 70px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: #ffffff; /* Default text color for contrast */
+  padding-top: 70px;
+}
+
+/* Main heading */
+.membership-container-main h2 {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.8rem;
+  font-weight: 600;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 1rem;
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  /* text-align: center; */
+}
+
+.active-card p, .scheduled-card p{
+  font-size: 18px !important;
+}
+
+/* Membership details section */
+.membership-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Membership section (Your Memberships) */
+.membership-section {
+  background: rgba(30, 41, 59, 0.7); /* Semi-transparent card */
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 32px;
+  padding-top: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Section heading */
+.membership-section h3 {
+  font-size: 24px;
+  /* color: #ffffff; */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+/* .membership-section button{
+  display: flex;
+  justify-content: center;
+} */
+
+/* Membership cards container */
+.membership-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  height: 210px;
+}
+
+/* Individual membership card */
+.membership-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  width: 300px;
+  position: relative;
+  color: #ffffff;
+}
+
+.membership-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.membership-card p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Status badges */
+.sstatus-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.active-badge {
+  background: linear-gradient(135deg, #0de901, #d7df04); /* Green gradient */
+  color: #1e293b;
+}
+
+.scheduled-badge {
+  background: linear-gradient(135deg, #e96501, #8e3407); /* Orange gradient */
+  color: #ffffff;
+}
+
+/* Button styling (View All Membership Plans and Pay Now) */
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #e96501, #8e3407); /* Orange gradient */
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0de901, #d7df04); /* Green gradient on hover */
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #0de901, #d7df04); /* Green gradient */
+  color: #1e293b;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #e96501, #8e3407); /* Orange gradient on hover */
+}
+
+/* Payment options heading */
+.membership-details h3 {
+  font-size: 24px;
+  /* color: #ffffff; */
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Payment table container */
+.payment-table-container {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Table styling */
+.payment-table-container Table {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+  border-radius: 10px;
+  background: rgba(30, 41, 59, 0.992);
+  backdrop-filter: blur(16px);
+
+  /* border: 1px solid black; */
+}
+
+.payment-table-container table th {
+  padding: 1rem;
+  font-weight: 600;
+  text-align: center;
+  background: rgba(153, 168, 193, 0.9);
+  padding-left: 16px !important;
+}
+
+.payment-table-container table td {
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background: rgba(30, 41, 59, 0.992);
+
+}
+
+.payment-table-container .Table-hover tr:hover{
+  background: black !important;
+}
+
+/* .payment-table-container .table-striped tbody tr:nth-of-type(odd) {
+  background: #f9fafb;
+} */
+
+.payment-table-container .table-hover tbody tr:hover {
+  background: #000000 !important;
+}
+
+/* Payment Table Hover Effect */
+.payment-table-container tbody tr:hover td {
+  background: rgba(0, 0, 0, 0.9) !important;
+  /* box-shadow: 0 0 15px rgba(13, 233, 1, 0.3); */
+  transition: all 0.3s ease;
+}
+
+/* Add this for better contrast */
+.payment-table-container table {
+  background: transparent !important;
+  /* border-collapse: separate; */
+  /* border-spacing: 0; */
+}
+
+.payment-table-container table td {
+  position: relative;
+  z-index: 1;
+}
+
+.payment-table-container table td::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  z-index: -1;
+}
+
+.payment-table-container button{
+  background: linear-gradient(135deg, #007e26, rgb(0, 182, 21)) ;
+
+}
+
+
+/* Toast container */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.toast {
+  background: rgba(30, 41, 59, 0.9);
+  color: #ffffff;
+  border-radius: 0.375rem;
+  min-width: 250px;
+}
+
+.toast-header {
+  background: linear-gradient(135deg, #e96501, #8e3407);
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.toast-body {
+  padding: 1rem;
+}

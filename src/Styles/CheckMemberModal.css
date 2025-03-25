@@ -1,0 +1,224 @@
+/* .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  .close-btn {
+    font-size: 2rem;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+    color: #ff0000;
+  }
+  
+  .modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  
+  .membership-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .membership-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+  }
+  
+  .membership-item h3 {
+    font-size: 1.2rem;
+    color: #444;
+  }
+  
+  .membership-item p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .membership-item strong {
+    color: #333;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .close-modal-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .close-modal-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .close-modal-btn:focus {
+    outline: none;
+  }
+   */
+
+
+
+
+   .modal-content {
+    background: rgba(255,255,255,0.95);
+    border-radius: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #6366f110, #3b82f610);
+    z-index: -1;
+  }
+  
+  .modal-header {
+    border-bottom: none;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: white;
+  }
+  
+  .modal-title {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+  
+  .btn-close {
+    filter: invert(1);
+    opacity: 0.8;
+  }
+  
+  .invoice-content {
+    position: relative;
+    padding: 2rem;
+  }
+  
+  .invoice-header h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .invoice-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #3b82f6);
+  }
+  
+  .invoice-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .invoice-row span:first-child {
+    font-weight: 600;
+    color: #475569;
+  }
+  
+  .invoice-row span:last-child {
+    color: #1e293b;
+    text-align: right;
+    font-weight: 500;
+  }
+  
+  .invoice-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .invoice-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #3b82f6);
+  }
+  
+  .invoice-footer p {
+    color: #64748b;
+    font-style: italic;
+    margin-bottom: 0;
+  }

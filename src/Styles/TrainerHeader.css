@@ -1,0 +1,40 @@
+
+.trainer-headers {
+    /* background: linear-gradient(135deg, #0254ab, #3b0e85); */
+    background: linear-gradient(135deg, #0254ab, #3b0e85);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+
+}
+
+.trainer-header-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* max-width: 1200px; */
+    width: 100%;
+    margin: 0 auto;
+    /* padding: 0 10px; */
+    text-align: center;
+
+
+}
+
+.trainer-nav-link {
+    text-decoration: none;
+    color: white;
+    background: rgba(255, 255, 255, 0.462);
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background 0.3s ease-in-out;
+    /* margin-left: -100px; */
+    width: 100%;
+}
+
+.trainer-nav-link:hover {
+    background: rgba(255, 255, 255, 0.4);
+}

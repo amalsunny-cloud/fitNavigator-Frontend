@@ -1,0 +1,274 @@
+.payment-management-container {
+    padding: 2rem;
+    background-color: #f9fafb;
+    /* min-height: auto; */
+    /* min-height: 100vh; */
+    min-height: 700px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+
+  }
+  
+  .management-card-payment {
+    /* background: white; */
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 2rem 1.5rem 1.5rem 1.5rem !important;
+    max-width: 1450px;
+    width: 1400px !important;
+    margin: 0 auto;
+    margin-top: 40px;
+    
+
+    background: rgba(30, 41, 59, 0.992);
+  backdrop-filter: blur(16px);
+  }
+  
+  .card-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tabs-payment {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+  }
+  
+  .tab-button.active {
+    background-color: #3b82f6;
+    color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .tab-button:not(.active) {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  .tab-button:not(.active):hover {
+    background-color: #e5e7eb;
+  }
+  
+  .tab-contents {
+    margin-top: 1.5rem;
+  }
+  .tab-contents .members-table thead th{
+    padding-left: 16px !important;
+    text-align: center;
+  }
+
+  .tab-contents .members-table td{
+    text-align: center;
+  }
+  
+  .search-bar input{
+    outline: none;
+  }
+  
+
+  .add-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s;
+  }
+  
+  .add-button:hover {
+    background-color: #059669;
+  }
+  
+  .members-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1rem;
+  }
+  
+  .members-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background-color: #f9fafb;
+    color: #4b5563;
+    font-weight: 600;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .members-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .members-table tbody tr:hover {
+    background-color: #f9fafb;
+  }
+  
+  .action-buttons-payment-management {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .edit-button-1, .delete-button-1 {
+    padding: 0.25rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .edit-button-1 {
+    color: #3b82f6;
+    background-color: #dbeafe;
+  }
+  
+  .edit-button-1:hover {
+    background-color: #bfdbfe;
+  }
+  
+  .delete-button-1 {
+    color: #ef4444;
+    background-color: #fee2e2;
+  }
+  
+  .delete-button-1:hover {
+    background: #760404 !important;
+  }
+
+  .tab-contents .member-form{
+    width: 1150px !important;
+    margin: auto;
+  }
+  
+  .member-form {
+    background-color: #cfe4f9 !important;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* justify-content: center; */
+  }
+  
+  .member-form input, .member-form select {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    width: 100%;
+  }
+  
+  .member-form input:focus, .member-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    /* ring: 2px;
+    ring-color: #93c5fd; */
+  }
+  
+  .form-buttons-payment-management {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .save-button-payment-management, .cancel-button-payment-management {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius:10px;
+    /* border-radius: 0.375rem; */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .save-button-payment-management {
+    /* background-color: #3b82f6; */
+    background: #4CAF50;
+
+    color: white;
+    border: none;
+  }
+  
+  .save-button-payment-management:hover {
+    /* background-color: #2563eb; */
+    background: #008a05;
+  }
+  
+  .cancel-button-payment-management {
+    /* background-color: #ef4444; */
+    background: #d01609;
+    color: white;
+    border: none;
+  }
+  
+  .cancel-button-payment-management:hover {
+    /* background-color: #dc2626; */
+    background: #dd5303 !important;
+  }
+  
+  .status-badges {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: 90px;
+
+
+    /* position: absolute;
+    top: 200px;
+    left: 1040px;
+    width: 100px; */
+  }
+  
+  .status-badges.active {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .status-badges.inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .status-badges.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+    
+  }
+  
+  .status-badges.paid {
+    background-color: #d1fae5;
+    color: #065f46;
+    
+  }

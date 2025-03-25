@@ -1,0 +1,238 @@
+/* MessagesUser.css */
+.message-management-container-message-user {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 32px 70px;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.management-card-message-user {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+
+}
+
+.img-container-messageuser{
+  max-width: 380px;
+  position: absolute;
+  top: 400px;
+  left: 530px;
+  opacity: 0.2;
+}
+
+.card-title-message-user {
+  /* font-size: 24px; */
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+
+
+
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1rem;
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.tabs-message-user {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.tab-button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(135deg, #e96501, #8e3407);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background: linear-gradient(135deg, #007e26, rgb(0, 182, 21));
+}
+
+.tab-button:hover {
+  opacity: 0.9;
+}
+
+.message-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-bar-message-user {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar-message-user input {
+  width: 100%;
+  padding: 0.8rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  outline: none;
+}
+
+.search-bar-message-user input:focus{
+  border: 2px solid rgb(0, 234, 255);
+}
+
+.search-bar-message-user svg {
+  position: absolute;
+  left: 1rem;
+  color: #ffffff;
+}
+
+.message-send-button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #007e26, rgb(0, 182, 21));
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.message-send-button:hover {
+  opacity: 0.9;
+}
+
+.messages-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.messages-table th {
+  background: rgba(153, 168, 193, 0.9);
+  padding: 1rem;
+  color: #1e293b;
+  font-weight: 600;
+  text-align: left;
+}
+
+.messages-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.messages-table tr:hover td {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.delete-button {
+  background: rgba(220, 53, 69, 0.2);
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-button:hover {
+  background: rgba(220, 53, 69, 0.3);
+}
+
+.date-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-message {
+  color: #dc2626;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.tab-contents-before {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.tab-content-new{
+  margin-bottom: 20px;
+}
+
+.tab-content-new h4 {
+  color: #e96501;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-content-new  th{
+  padding-left: 16px !important;
+  text-align: center;
+}
+
+.tab-content-message-user th{
+  padding-left: 16px !important;
+  text-align: center;
+}
+
+.tab-content-message-user td:last-child{
+  display: flex;
+  justify-content: center;
+}
+.loading {
+  text-align: center;
+  color: #94a3b8;
+  padding: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .message-management-container-message-user {
+      padding: 32px 20px;
+  }
+  
+  .management-card-message-user {
+      padding: 1rem;
+  }
+  
+  .message-input {
+      flex-direction: column;
+  }
+  
+  .messages-table {
+      display: block;
+      overflow-x: auto;
+  }
+}

@@ -1,0 +1,359 @@
+
+.styled-date {
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.styled-date:hover {
+  border-color: #3498db;
+}
+
+.styled-date:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+  outline: none;
+}
+
+
+
+
+
+.trainer-attendance-container {
+    padding: 75px 70px;
+    /* max-width: 1450px; */
+    margin: 0 auto;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  }
+  
+  .attendance-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    color: #333;
+
+    background: linear-gradient(90deg, #f95f00, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .date-selection {
+    margin-bottom: 24px;
+   
+
+  }
+  
+  .date-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 200px;
+  }
+  
+  .date-picker input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+  }
+  .date-picker svg{
+    color: white;
+  }
+  
+  .attendance-marking,
+  .attendance-history {
+    /* margin: 32px; */
+
+
+    margin: 50px 0px;
+    background: rgba(30, 41, 59, 0.992);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 30px;
+  }
+
+  .attendance-marking td{
+    color: white;
+  }
+
+  .attendance-marking th{
+    background-color: rgba(255, 255, 255, 0.315) !important;
+    color: #000000 !important;
+  }
+
+  .attendance-history th{
+    background-color: rgba(255, 255, 255, 0.315);
+  }
+
+  .attendance-marking td:hover{
+    background-color: none;
+  }
+
+
+  .attendance-marking tbody tr:hover  {
+    color: rgb(255, 255, 255);
+    background-color: black;
+  }
+  
+  
+  .attendance-marking h3,
+  .attendance-history h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    /* color: #ffffff; */
+    /* color: #333; */
+
+
+    background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  }
+
+  .attendance-history td{
+    color: white;
+  }
+
+  .attendance-history td:nth-child(4){
+    display: flex;
+    justify-content: center;
+  }
+
+  .attendance-marking table th,.attendance-history table th{
+    padding-left: 0px !important;
+    text-align: center;
+  }
+  
+  .attendance-table,
+  .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+  
+  .attendance-table th,
+  .attendance-table td,
+  .history-table th,
+  .history-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    text-align: center; 
+  vertical-align: middle;
+
+  }
+  
+  .attendance-table th,
+  .history-table th {
+    font-weight: 600;
+    color: #000000;
+
+  }
+  .attendance-table tbody td{
+    color: white;
+  }
+
+  .history-table .save-button{
+    /* background-color: green; */
+    /* background: green; */
+    background: #4CAF50;
+    border-radius: 10px;
+    width: 80px;
+    color: white;
+  }
+
+  .history-table .save-button:hover{
+    /* background: #008a05; */
+    background: #008a05;
+    color: white;
+
+
+  }
+
+  .history-table .cancel-button{
+    border-radius: 10px;
+    background: #d01609 !important;
+    width: 80px;
+    color: white;
+
+  }
+
+  .history-table .cancel-button:hover{
+    background: #dd5303 !important;
+    color: white;
+
+  }
+
+  
+  .attendance-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .status-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  
+  .status-button.present {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+  
+  .status-button.absent {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+  
+  .status-button.active {
+    outline: 2px solid currentColor;
+  }
+  
+  .status-button:hover {
+    opacity: 0.9;
+  }
+  
+  .status-badge-manage-attendance {
+
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .status-badge-manage-attendance.present {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+  
+  .status-badge-manage-attendance.absent {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+ 
+  
+  .edit-button,
+  .cancel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  .edit-button:hover,
+  .cancel-button:hover {
+    /* background: #e5e7eb; */
+    background: #444444;
+  }
+
+
+  
+  .edit-select {
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: black;
+  }
+  
+  .edit-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  table th{
+    padding-left: 0px !important;
+  }
+  
+  @media (max-width: 768px) {
+    .attendance-table,
+    .history-table {
+      display: block;
+      overflow-x: auto;
+    }
+    
+    .attendance-actions {
+      flex-direction: column;
+    }
+  }
+
+
+
+
+  .modal-overlay-manage-attendance {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content-manage-attendance {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 50%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    width: 700px !important;
+  }
+  
+  .modal-header-manage-attendance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .close-button-manage-attendance {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 0.5rem;
+  }
+  
+  .close-button-manage-attendance:hover {
+    color: #333;
+  }
+
+  .management-card{
+    width: 500px !important;
+  }
+
+  .card-title h2{
+    width: 900px;
+    
+  }

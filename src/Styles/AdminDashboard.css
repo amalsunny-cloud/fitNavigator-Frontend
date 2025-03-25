@@ -1,0 +1,248 @@
+
+.admin-dashboard-container {
+  padding: 1.3rem 4rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
+  transition: margin 0.3s ease;
+}
+
+.glassmorphic-sidebar {
+  width: 350px;
+  backdrop-filter: blur(16px);
+  position: fixed;
+  left: -350px;
+  transition: left 0.3s ease;
+  padding: 2rem;
+  height: 100vh;
+  z-index: 1000;
+}
+
+.glassmorphic-sidebar.open {
+  left: 0;
+}
+
+.hamburger-menu {
+  position: fixed;
+  top: 35px !important;
+  left: 20px;
+  z-index: 1001;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-bar {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.dashboard-header-admin {
+  margin-bottom: 0px !important;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(8, 35, 17);
+  padding: 15px 0px 7px 0px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.neon-title {
+  color: #fff;
+  font-size: 2.5rem;
+  text-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+  margin-bottom: 0.5rem;
+  margin-left: 80px;
+}
+
+.dashboard-header-admin p{
+  color: #94a3b8;
+  font-size: 1.5rem;
+}
+
+.dashboard-subtitle {
+  margin-right: 30px;
+}
+
+.metrics-grid-admin {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-bottom: 3rem;
+  padding: 0rem 2rem;
+}
+
+.metric-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+}
+
+.metric-icon {
+  margin-bottom: 0rem !important;
+}
+
+.metric-title {
+  font-size: 1.2rem !important;
+  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.9) !important;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0px;
+  text-align: center;
+
+  color: rgb(86, 44, 44);
+}
+
+.analytics-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  margin: 0px 38px;
+}
+
+.glassmorphic-card {
+  background: rgba(18, 50, 103, 0.207) !important;
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.chart-title {
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.chart-container {
+  height: 400px;
+}
+
+.revenue-charts-container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.revenue-chart h4 {
+  color: #94a3b8;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.navigation-links .hover-scale{
+  color: rgb(255, 244, 244) !important;
+  padding: 10px;
+  border: 0.2px solid rgba(222, 222, 222, 0.407);
+  border-radius: 10px;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.admin-profile-button {
+  background: linear-gradient(125deg,rgb(1, 152, 1),rgb(255, 198, 27));
+  /* background: linear-gradient(45deg,rgb(4, 120, 4),rgb(181, 149, 53)); */
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 70%;
+  margin-bottom: 2rem;
+  margin-left: 60px;
+  margin-top: 0px;
+}
+
+.data-empty-state {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: #64748b;
+}
+
+.empty-state-icon {
+  font-size: 2.5rem;
+}
+
+.empty-state-text {
+  font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .admin-dashboard-container {
+    margin-left: 0;
+  }
+  
+  .glassmorphic-sidebar {
+    left: -350px;
+  }
+  
+  .glassmorphic-sidebar.open {
+    left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .revenue-charts-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-card {
+    padding: 1rem;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+  }
+}

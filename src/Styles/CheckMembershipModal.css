@@ -1,0 +1,103 @@
+/* Membership Modal */
+.membership-modal .membership-modal-header {
+    background: #ed9600;
+    /* background: #1e293b; */
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff33;
+
+    
+  }
+  
+  .membership-modal .membership-modal-body {
+    /* background: #0f172a; */
+    background: #ed9600;
+
+    color: #cbd5e1;
+  }
+
+  
+  .membership-plan-card {
+    background: #ed9600;
+    /* background: rgba(30, 41, 59, 0.7); */
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+  }
+  
+  .membership-plan-details p {
+    margin: 0.5rem 0;
+    color: #ffffff;
+  }
+
+  /* Invoice Modal */
+  .invoice-modal .invoice-modal-header {
+    /* background: #ffffff; */
+    background: #ed9600;
+    /* background: #1e293b; */
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff33;
+    width: 100%;
+  }
+
+  /* .invoice-modal .invoice-modal-header button:hover{
+    background-color: #ffffff !important;
+    color: #ffffff !important;
+  } */
+
+
+  .modal-header .btn-close{
+    background-color: white;
+  }
+
+  .modal-header .btn-close:hover{
+    background-color: transparent !important;
+  }
+  
+  .invoice-modal .invoice-modal-body {
+    background:#ed960023;
+    /* background: #0f172a; */
+    color: #cbd5e1;
+  }
+  
+  .invoice-content {
+    /* background: rgba(30, 41, 59, 0.7); */
+    /* background: rgb(126, 126, 126); */
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .invoice-content h2 {
+    color: rgb(0, 0, 0) !important;
+    /* color: white; */
+    margin-bottom: 30px;
+  }
+  
+  .invoice-header-section h2 {
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .invoice-row span{
+    color: black;
+  }
+  .invoice-details-section .invoice-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+
+  }
+  
+  .invoice-footer-section p {
+    text-align: center;
+    /* color: #94a3b8; */
+    color: #000000;
+    font-size: 0.9rem;
+
+    margin-top: 20px;
+  }
+  

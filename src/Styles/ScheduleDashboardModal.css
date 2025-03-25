@@ -1,0 +1,228 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.95);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --gradient-primary: linear-gradient(135deg, #6366f1, #3b82f6);
+    --gradient-accent: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .modal-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .modal-backdrop.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .modal-content-wrapper-schedule {
+    max-width: 500px;
+    width: 100%;
+    margin: 2rem;
+  }
+  
+  .modal-container-schedule {
+    background: white;
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    border: 1px solid black;
+   
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .modal-backdrop.show .modal-container-schedule {
+    transform: translateY(0);
+  }
+  
+  .modal-header-schedule {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    margin-bottom: 0px;
+  }
+  
+  .modal-title-schedule {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 700;
+    background: linear-gradient(45deg, #1e293b, #475569);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 1.90rem;
+    right: -1.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .close-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .close-icon {
+    position: relative;
+    top: 10px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .close-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #1e293b;
+    transition: all 0.3s ease;
+  }
+
+  .close-line:first-child {
+    transform: rotate(45deg);
+  }
+  
+  .close-line:last-child {
+    transform: rotate(-45deg);
+  }
+  
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .detail-card {
+    background: rgba(243, 244, 246, 0.3);
+    border-radius: 16px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .detail-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .detail-icon {
+    font-size: 1.5rem;
+  }
+  
+  .detail-label {
+    font-size: 1.1rem;
+    color: #475569;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .detail-value {
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin: 0;
+    font-weight: 700;
+    padding-left: 2.25rem;
+  }
+  
+  .modal-footer {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .action-button {
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .action-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: 0.5s;
+  }
+  
+  .action-button:hover::before {
+    left: 100%;
+  }
+  
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+  
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.9; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.9; }
+  }
+  
+  @media (max-width: 768px) {
+    .modal-title {
+      font-size: 1.5rem;
+    }
+    
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .modal-header,
+    .modal-footer {
+      padding: 1.5rem;
+    }
+  }

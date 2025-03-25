@@ -1,0 +1,208 @@
+.training-schedules {
+    width: 100%;
+    min-height: 100vh; 
+    /* background-color: #f5f5f5;  */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .training-schedules h1 {
+    font-size: 2.5rem; 
+    /* color: #333; */
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    background: linear-gradient(90deg, #f95f00, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+  
+  .form-container-trainer {
+    max-width: 900px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    /* background-color: #fff;  */
+    background: rgba(18, 50, 103, 0.207) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+  .form-container-trainer select{
+    /* background: #eae9e9; */
+    background-color: rgb(188, 188, 188);
+
+    height: 50px;
+    border-radius: 10px;
+    padding: 7px;
+  }
+
+  .training-sub-schedules{
+    display: flex;
+    width: 1400px;
+    margin: 0px 30px 0px 30px;
+
+
+   
+  }
+  
+  .form-container-trainer input {
+    flex: 1; 
+    min-width: 300px; 
+    padding: 25px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; 
+    height: 60px !important;
+    background-color: rgb(188, 188, 188);
+
+  }
+
+  .form-container-trainer input::placeholder{
+    color: rgb(62, 62, 62);
+  }
+  
+  /* .buttonForAddUpdate{
+    background: #000;
+
+  } */
+  
+  .form-container-trainer button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: white;
+    /* background-color: #007bff;  */
+    background: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 70px;
+    width: 100px;
+  }
+  
+  .form-container-trainer button:hover {
+    /* background-color: #0056b3;  */
+    background: #008a05;
+  }
+
+
+
+  
+  .schedule-list {
+    width: 100%; 
+    max-width: 800px; 
+    padding: 25px;
+    background: rgba(18, 50, 103, 0.207) !important;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 12px;
+
+
+  }
+  
+  .schedule-item {
+    background-color: rgb(200, 200, 200);
+    /* background-color: white; */
+    padding: 20px 40px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #ddd; 
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column;  */
+    gap: 10px; 
+  }
+  
+  .schedule-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #000000;
+    /* color: green; */
+  }
+
+  .schedule-item span{
+    color: rgb(183, 101, 0);
+    font-weight: 600;
+  }
+  
+  .actions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+  }
+
+  .actions .edit-button-4{
+    display: flex;
+    justify-content: center;
+
+    padding: 7px 27px;
+    background-color: #dd8007;
+    /* background: #d01609; */
+    border-radius: 10px;
+    color: white;
+
+  }
+  .actions .delete-button-4{
+    display: flex;
+    justify-content: center;
+
+    padding: 7px 27px;
+    background-color: #ca0707;    /* background: #d01609; */
+    border-radius: 10px;
+    color: white;
+
+  }
+
+  
+  /* .actions .edit-button-2,  .actions .delete-button-2 {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+  }
+  
+  .actions .edit-button-2 {
+    background-color: #dbeafe;
+
+
+    margin-right: 5px;
+  }
+   
+  .actions .delete-button-2 {
+    background:rgb(175, 31, 31); 
+  } */
+
+  
+  @media (max-width: 768px) {
+    .form-container {
+      flex-direction: column; 
+      gap: 15px; 
+    }
+  
+    .schedule-item {
+      padding: 15px; 
+    }
+  }
+  

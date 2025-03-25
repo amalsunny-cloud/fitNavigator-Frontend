@@ -1,0 +1,703 @@
+/* 
+:root {
+  --primary-gradient: linear-gradient(135deg, #6366f1, #3b82f6);
+  --success-gradient: linear-gradient(135deg, #22c55e, #16a34a);
+  --warning-gradient: linear-gradient(135deg, #f59e0b, #d97706);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+}
+
+.fitness-goal-tracker {
+  max-width: 1600px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: var(--glass-bg);
+  border-radius: 2rem;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.fitness-goal-tracker::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: rotate(45deg);
+  animation: backgroundShine 6s infinite linear;
+}
+
+@keyframes backgroundShine {
+  0% { left: -50%; }
+  100% { left: 150%; }
+}
+
+.fitness-goal-tracker h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  letter-spacing: -0.025em;
+}
+
+.goal-selection {
+  position: relative;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.goal-selection label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.goal-selection select {
+  appearance: none;
+  width: 100%;
+  max-width: 400px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.goal-selection select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+
+.goal-note {
+  display: block;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.stats-card {
+  position: relative;
+  padding: 2rem;
+  background: var(--glass-bg);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 48px -8px rgba(0, 0, 0, 0.1);
+}
+
+.stats-card:hover::before {
+  transform: translateX(100%);
+}
+
+.stats-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.stats-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--primary-gradient);
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: rgba(243, 244, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+button {
+  background: var(--success-gradient);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+.stats-grid-mini {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(243, 244, 246, 0.3);
+  border-radius: 0.75rem;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #3b82f6;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
+.measurement-changes {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.measurement-change-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: rgba(243, 244, 246, 0.3);
+  border-radius: 0.75rem;
+}
+
+.recharts-wrapper {
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .fitness-goal-tracker {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-card {
+    padding: 1.5rem;
+  }
+} */
+
+
+
+
+.fitness-goal-tracker {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 32px 70px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: #ffffff;
+  padding-top: 70px;
+}
+
+.fitness-goal-tracker h2 {
+  font-size: 24px;
+  /* color: #ffffff; */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.goal-selection {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 82%;
+}
+
+.goal-selection label {
+  font-size: 18px;
+  /* color: #ffffff; */
+  font-weight: 500;
+
+
+background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+
+}
+
+.goal-selection select {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+  background: white;
+  color: #1e293b;
+  font-size: 16px;
+  height: 60px !important;
+
+  /* width: 50%; */
+}
+
+.img-for-track-user-workout{
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  right: -240px;
+}
+
+.goal-selection-sub{
+  display: flex;
+}
+
+.goal-note {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin-top: 8px;
+}
+
+.tracking-section {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  /* grid-template-columns: repeat(3, 1fr); */
+  width: 100%;
+  gap: 24px;
+}
+
+.stats-card-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 60px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  /* width: 330px; */
+  /* padding-bottom: 60px; */
+}
+
+
+
+.stats-card-track:first-child{
+  padding: 40px;
+  /* margin-bottom: 30px; */
+}
+.stats-card-track-new {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px 60px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+  height: 480px;
+  /* width: 330px; */
+  /* padding-bottom: 60px; */
+}
+
+.stats-card-track h3 {
+  font-size: 28px;
+  /* color: #ffffff; */
+  /* margin-bottom: 20px; */
+  font-weight: 600;
+
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stats-card-track-new h3 {
+  font-size: 28px;
+  /* color: #ffffff; */
+  /* margin-bottom: 20px; */
+  font-weight: 600;
+
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stats-card-track:first-child h3 {
+  font-size: 28px;
+  /* color: #ffffff; */
+  margin-bottom: 20px;
+  font-weight: 600;
+
+
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bmi-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bmi-section button{
+  background: #4CAF50;
+
+  padding: 0.5rem 1.5rem;
+  /* background: linear-gradient(135deg, #e96501, #8e3407); */
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bmi-section button:hover{
+  background: #008a05;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+  /* background: white; */
+  background-color: rgb(188, 188, 188);
+  color: #1e293b;
+  font-size: 14px;
+  width: 550px;
+  margin: 10px 0px 20px 0px;
+  /* width: 100%; */
+}
+
+.input-group input:focus,
+.input-group select:focus{
+  outline: none;
+  border: 2px solid #95b7fb;
+
+}
+
+/* button {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, #e96501, #8e3407);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+} */
+
+/* button:hover {
+  background: linear-gradient(135deg, #ff8c00, #b34700);
+} */
+
+.exercise-note {
+  font-size: 12px;
+  color: #cbd5e1;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.selected-exercise {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.775rem;
+  color: #ffffff;
+}
+
+.stats-card-weightProgress {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  /* width: 600px; */
+}
+
+.stats-card-weightProgress h3{
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.recharts-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px;
+  /* margin-bottom: 60px; */
+  max-width: 700px;
+}
+
+.recharts-default-legend {
+  color: #ffffff !important;
+  margin-top: 50px !important;
+}
+
+.recharts-tooltip-wrapper {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 8px;
+  padding: 10px;
+  color: #1e293b !important;
+}
+
+.recharts-legend-wrapper{
+  /* margin-top: 40px !important; */
+}
+.stats-grid-mini {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  text-align: center;
+  /* margin-top: 50px; */
+
+
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 6.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+
+
+  /* color: white !important; */
+}
+
+.stats-grid-mini-2 {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 6.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+
+
+}
+
+.endurance-section{
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.endurance-section label{
+  font-size: 24px;
+  background: linear-gradient(90deg, #f95f00, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+.endurance-section .input-group{
+  margin-top: 15px;
+}
+
+.endurance-section .buttonForRecordProgress{
+  background: #4CAF50;
+  padding: 13px;
+  border-radius: 16px;
+  
+}
+.endurance-section .buttonForRecordProgress:hover{
+  background: #008a05;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fd9300 !important;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.measurement-changes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.measurement-change-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.measurement-label {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.measurement-value {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.measurement-value.positive {
+  color: #10b981;
+}
+
+.measurement-value.negative {
+  color: #ef4444;
+}
+
+.muscle-measurement-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.muscle-measurement-section h3 {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.muscle-measurement-section button{
+  background: #4CAF50;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.muscle-measurement-section button:hover{
+  background: #008a05;
+
+}
