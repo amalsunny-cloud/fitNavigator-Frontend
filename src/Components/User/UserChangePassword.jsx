@@ -26,7 +26,7 @@ const UserChangePassword = ({ show, onClose }) => {
       console.log("Before sending api request");
       
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/user-change-password`,
+        `${import.meta.env.VITE_API_URL}/user-change-password`,
         {
           newPassword: formData.newPassword,
           confirmPassword: formData.confirmPassword,

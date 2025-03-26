@@ -21,7 +21,7 @@ const MemberPerform = () => {
         console.error("Trainer ID is missing!");
         return;
     }
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/get-all-users?trainerId=${trainerId}`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/get-all-users?trainerId=${trainerId}`)
 
       console.log("response after in fetchAssignedUsersofTrainer:",response.data.data);
 
@@ -38,7 +38,7 @@ const MemberPerform = () => {
   const fetchUserProgress = async()=>{
     try{
       console.log("Inside the frontend fetchUserProgress");
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/get-all-users-progress?trainerId=${trainerId}`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/get-all-users-progress?trainerId=${trainerId}`)
 
       console.log("response after in fetchUserProgress:",response.data.data);
   

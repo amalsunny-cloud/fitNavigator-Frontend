@@ -70,7 +70,7 @@ const TrainerDashboard = () => {
       }
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/fetch-trainerdata/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/fetch-trainerdata/${trainerId}`
       );
       // console.log("response after fetchTrainerData", response.data);
       setTrainer(response.data);
@@ -220,7 +220,7 @@ const TrainerDashboard = () => {
   const fetchNotificationsToTrainerDashboard = async () => {
     try {
       console.log("Inside the notificationsToTrainerDashboard");
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetchNotificationsToTrainerDashboard/${trainerId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetchNotificationsToTrainerDashboard/${trainerId}`);
       console.log("After the response of notificationTrainer:", response.data.count);
 
       setCountNotificationTrainerDashboard(response.data.count);
@@ -234,7 +234,7 @@ const TrainerDashboard = () => {
   const fetchAdminMessageForTrainerDashboard = async () => {
     try {
       console.log("Inside the fetchAdminMessageForTrainerDashboard");
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetchAdminMessageForTrainerDashboard`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetchAdminMessageForTrainerDashboard`);
       console.log("After the response of admin messages:", response.data.count);
 
       setCountAdminMessageTrainerDashboard(response.data.count);
@@ -254,7 +254,7 @@ const TrainerDashboard = () => {
   const fetchTodaysClassSchedulingsTrainerDashboard = async()=>{
     try{
       console.log("Inside the fetchTodaysClassSchedulingsTrainerDashboard");
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetchTodaysClassSchedulingsTrainerDashboard/${trainerId}`)
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetchTodaysClassSchedulingsTrainerDashboard/${trainerId}`)
       console.log("response.data iss:",response.data);
       const ScheduleCount = response.data.length;
       console.log("ScheduleCount:",ScheduleCount);
@@ -273,7 +273,7 @@ const TrainerDashboard = () => {
     try {
       // console.log("inside the getuserattendance frontend");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/getuserattendance/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/getuserattendance/${trainerId}`
       );
       // console.log("response after getuserattendance:", response.data);
       console.log("response after getuserattendance:", response.data.data);
@@ -300,7 +300,7 @@ const TrainerDashboard = () => {
     try {
       // console.log("inside the fetchTrainersUsers frontend");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/get-all-users/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/get-all-users/${trainerId}`
       );
       // console.log("response after getting:", response.data);
       const count = response.data.data.length;
@@ -322,7 +322,7 @@ const TrainerDashboard = () => {
     try {
       // console.log("inside the frontend fetchAllUsersProgressOfTrainer");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/fetchTrainer-all-user-progress/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/fetchTrainer-all-user-progress/${trainerId}`
       );
 
       // console.log("response in 194:", response.data);

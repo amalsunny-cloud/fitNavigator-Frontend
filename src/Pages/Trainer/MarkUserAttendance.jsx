@@ -51,7 +51,7 @@ const MarkUserAttendance = () => {
       }
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/get-all-users?trainerId=${trainerId}`
+        `${import.meta.env.VITE_API_URL}/get-all-users?trainerId=${trainerId}`
       );
 
       console.log("response after:", response.data.data);
@@ -81,7 +81,7 @@ const MarkUserAttendance = () => {
       console.log("Inside fetchattendance records try block");
       
       setLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/getuserattendance/${trainerId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/getuserattendance/${trainerId}`);
 
       console.log("response is 88:",response.data);
       
@@ -102,7 +102,7 @@ const MarkUserAttendance = () => {
       console.log("Fetching today's attendance...");
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/getuser-attendance/today/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/getuser-attendance/today/${trainerId}`
       );
 
       if (response.data && response.data.data) {
@@ -164,7 +164,7 @@ const MarkUserAttendance = () => {
         console.log("before responsePut");
 
         const responsePut = await axios.put(
-          `${process.env.REACT_APP_API_URL}/update-userattendance/${editingId}`,
+          `${import.meta.env.VITE_API_URL}/update-userattendance/${editingId}`,
           {
             userId: attendanceForm.userId,
             trainerId: trainerId,
@@ -186,7 +186,7 @@ const MarkUserAttendance = () => {
         console.log("before responsePost");
 
         const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}/mark-userattendance`,
+          `${import.meta.env.VITE_API_URL}/mark-userattendance`,
           {
             userId: attendanceForm.userId,
             trainerId: trainerId,
@@ -254,7 +254,7 @@ const MarkUserAttendance = () => {
     try {
       console.log(id);
       const response = await axios.delete(
-        `${process.env.REACT_APP_API_URL}/delete-userattendance/${id}`
+        `${import.meta.env.VITE_API_URL}/delete-userattendance/${id}`
       );
 
       console.log(response);

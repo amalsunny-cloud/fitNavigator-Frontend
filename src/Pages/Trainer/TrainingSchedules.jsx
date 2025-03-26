@@ -25,7 +25,7 @@ const TrainingSchedules = () => {
     try {
       console.log("Inside fetchAssignedUsersOfTrainer function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/trainer-fetchAssign-users/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/trainer-fetchAssign-users/${trainerId}`
       );
       console.log("response of fetchAssignedUsersOfTrainer:", response.data);
 
@@ -44,7 +44,7 @@ const TrainingSchedules = () => {
 
   const fetchSchedules = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/add-schedules`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/add-schedules`);
       setSchedules(response.data);
     } catch (err) {
       console.error("Error fetching schedules:", err);
@@ -62,7 +62,7 @@ const TrainingSchedules = () => {
       try {
         console.log("Inside of getData function");
 
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/add-schedules`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/add-schedules`);
         console.log(response.data);
         setSchedules(response.data);
       } catch (err) {
@@ -106,12 +106,12 @@ const TrainingSchedules = () => {
 
       if (editingSchedule) {
         await axios.put(
-          `${process.env.REACT_APP_API_URL}/update-schedules/${editingSchedule._id}`,
+          `${import.meta.env.VITE_API_URL}/update-schedules/${editingSchedule._id}`,
           payload
         );
         toast.success("Schedule updated successfully!");
       } else {
-        await axios.post(`${process.env.REACT_APP_API_URL}/add-schedules`, {
+        await axios.post(`${import.meta.env.VITE_API_URL}/add-schedules`, {
           ...payload,
           username: formData.username,
         });
@@ -147,7 +147,7 @@ const TrainingSchedules = () => {
   const handleDeleteSchedule = async (scheduleId) => {
     try {
       await axios.delete(
-        `${process.env.REACT_APP_API_URL}/delete-schedules/${scheduleId}`
+        `${import.meta.env.VITE_API_URL}/delete-schedules/${scheduleId}`
       );
       toast.success("Schedule deleted successfully!");
 

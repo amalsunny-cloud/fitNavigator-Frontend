@@ -24,7 +24,7 @@ const AssignTrainers = ({ users, trainers }) => {
 
   const fetchAssignments = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/assignments`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/assignments`);
       setAssignments(response.data);
     } catch (error) {
       showMessage("Error fetching assignments. Please try again.", "error");
@@ -59,7 +59,7 @@ const AssignTrainers = ({ users, trainers }) => {
       }
 
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/assignments/${id}`,
+        `${import.meta.env.VITE_API_URL}/assignments/${id}`,
         {
           trainerId: currentAssignment.trainer._id,
         }
@@ -83,7 +83,7 @@ const AssignTrainers = ({ users, trainers }) => {
 
   const handleDeleteClick = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/assignments/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/assignments/${id}`);
       setAssignments(assignments.filter((assignment) => assignment._id !== id));
       toast.success("Assignment deleted successfully!");
     } catch (error) {
@@ -116,7 +116,7 @@ const AssignTrainers = ({ users, trainers }) => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/assign-trainer`,
+        `${import.meta.env.VITE_API_URL}/assign-trainer`,
         {
           userId: selectedUser._id,
           trainerId: selectedTrainer._id,

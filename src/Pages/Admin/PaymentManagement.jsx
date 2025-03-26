@@ -30,11 +30,11 @@ const PaymentManagement = () => {
     const fetchPlans = async () => {
       setLoading(true);
       try {
-        const plansResponse = await axios.get(`${process.env.REACT_APP_API_URL}/plans`);
+        const plansResponse = await axios.get(`${import.meta.env.VITE_API_URL}/plans`);
         console.log('Plans response:', plansResponse.data);
         setPlans(plansResponse.data.data || []);
 
-        const historyResponse = await axios.get(`${process.env.REACT_APP_API_URL}/payment-history`);
+        const historyResponse = await axios.get(`${import.meta.env.VITE_API_URL}/payment-history`);
         console.log('History responsess:', historyResponse.data);
 
         setPaymentHistory(historyResponse.data.data || []);
@@ -55,7 +55,7 @@ const PaymentManagement = () => {
     try {
       if (editingId !== null) {
         // Update existing plan
-        const response = await axios.put(`${process.env.REACT_APP_API_URL}/plans/${editingId}`, {
+        const response = await axios.put(`${import.meta.env.VITE_API_URL}/plans/${editingId}`, {
           name: planForm.name,
           duration: parseInt(planForm.duration, 10),
           price: parseFloat(planForm.price)
@@ -66,7 +66,7 @@ const PaymentManagement = () => {
         toast.success("Plan updated successfully!");
       } else {
         // Create new plan
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/plans`, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/plans`, {
           name: planForm.name,
           duration: parseInt(planForm.duration, 10),
           price: parseFloat(planForm.price)
@@ -99,7 +99,7 @@ const PaymentManagement = () => {
   const handleDelete = async (id) => {
     try {
       console.log('Deleting plan with ID:', id);
-      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/plans/${id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/plans/${id}`);
       console.log('Delete response:', response);
 
       toast.success("Deleted Plan Successfully")

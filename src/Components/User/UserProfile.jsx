@@ -25,7 +25,7 @@ const UserProfile = ({ showModal, handleClose }) => {
     const fetchUserProfile = async () => {
       try {        
         const response = await axios.get(
-         `${process.env.REACT_APP_API_URL}/user/${userId}/profile`
+         `${import.meta.env.VITE_API_URL}/user/${userId}/profile`
         );
 
         const { username, purpose, profileImage } = response.data;
@@ -67,7 +67,7 @@ const UserProfile = ({ showModal, handleClose }) => {
 
       // Send FormData to the server
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/user/${userId}/profile-image`,
+        `${import.meta.env.VITE_API_URL}/user/${userId}/profile-image`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -111,7 +111,7 @@ const UserProfile = ({ showModal, handleClose }) => {
                 <img src={previewImage} alt="Preview" className="profile-image" />
               ) : userProfile.profileImage ? (
                 <img
-                  src={`${process.env.REACT_APP_API_URL}/${userProfile.profileImage}`}
+                  src={`${import.meta.env.VITE_API_URL}/${userProfile.profileImage}`}
                   alt="Profile"
                   className="profile-image"
                 />

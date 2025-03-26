@@ -27,7 +27,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
         console.log("before the api call");
 
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/trainer/${trainerId}/profile`
+          `${import.meta.env.VITE_API_URL}/trainer/${trainerId}/profile`
         );
 
         console.log(response.data);
@@ -75,7 +75,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
 
       // Send FormData to the server
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/trainer/${trainerId}/profile-image`,
+        `${import.meta.env.VITE_API_URL}/trainer/${trainerId}/profile-image`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -133,7 +133,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
                   />
                 ) : trainerProfile.profileImage ? (
                   <img
-                    src={`${process.env.REACT_APP_API_URL}/${trainerProfile.profileImage}`}
+                    src={`${import.meta.env.VITE_API_URL}/${trainerProfile.profileImage}`}
                     alt="Profile"
                     className="profile-image-trainer"
                   />

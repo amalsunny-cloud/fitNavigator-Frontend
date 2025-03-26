@@ -46,7 +46,7 @@ const MessagesUser = () => {
       setLoading(true);
       console.log("inside the fetchReceivedMessages");
       
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetch-all-user-messages`,{
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetch-all-user-messages`,{
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -91,7 +91,7 @@ const MessagesUser = () => {
   const fetchSentMessages = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user-sent-messages/${userId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/user-sent-messages/${userId}`);
       setMessagesSent(response.data.messages || []);
     } catch (error) {
       // setError('Failed to load sent messages');
@@ -111,7 +111,7 @@ const MessagesUser = () => {
         return;
       }
   
-      const trainerResponse = await axios.get(`${process.env.REACT_APP_API_URL}/user-messages/${userId}`)
+      const trainerResponse = await axios.get(`${import.meta.env.VITE_API_URL}/user-messages/${userId}`)
       console.log("trainerResponse is:",trainerResponse);
 
       if (!trainerResponse.data.trainerId) {
@@ -133,7 +133,7 @@ const MessagesUser = () => {
 
     console.log("after newMessage");
     console.log("Sending message:", newMessage);
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/user-messages`, newMessage, {
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/user-messages`, newMessage, {
       headers: { "Content-Type": "application/json" },
     });
 
@@ -173,7 +173,7 @@ const MessagesUser = () => {
       console.log("before the response in handleDeleteMessage");
       console.log("Deleting message with ID:", id);
       
-      const response = await axios.delete(`${process.env.REACT_APP_API_URL}/delete-usermessages/${id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/delete-usermessages/${id}`);
       console.log("After the response in handleDeleteMessage",response.data);
       toast.success("Deleted Message Successfully")
       await fetchSentMessages();

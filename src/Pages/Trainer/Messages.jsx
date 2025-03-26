@@ -41,7 +41,7 @@ const Messages = () => {
     try {
       console.log("inside the fetchAssignedUsers function");
       const fetchedResponse = await axios.get(
-        `${process.env.REACT_APP_API_URL}/trainer-fetchAssign-users/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/trainer-fetchAssign-users/${trainerId}`
       );
 
       console.log("fetchedUsers:", fetchedResponse.data);
@@ -72,7 +72,7 @@ const Messages = () => {
   const fetchReceivedMessages = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/messages`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/messages`);
       const trainerMessages = response.data.data.messages.filter(
         (msg) => msg.sentTo === "Trainers" || msg.sentTo === "All Members"
       );
@@ -92,7 +92,7 @@ const Messages = () => {
       console.log("inside the fetchUserToTrainerMessages");
       
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/fetchUserToTrainerMessages/${trainerId}`
+        `${import.meta.env.VITE_API_URL}/fetchUserToTrainerMessages/${trainerId}`
       );
 
       console.log("response after fetchUserToTrainerMessages:", response.data);
@@ -112,7 +112,7 @@ const Messages = () => {
       
       setLoading(true);
       const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/trainerToUsermessages/trainer/${trainerId}`
+          `${import.meta.env.VITE_API_URL}/trainerToUsermessages/trainer/${trainerId}`
       );
 
       console.log("response.data in 131:",response.data);
@@ -141,7 +141,7 @@ const Messages = () => {
       setLoading(true);
       // Send the message with userId
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/trainerToUsermessages`,
+        `${import.meta.env.VITE_API_URL}/trainerToUsermessages`,
         {
           text: newMessage,
           username: selectedUser,
@@ -173,7 +173,7 @@ const Messages = () => {
       console.log("before the response in handleDeleteMessage");
 
       const response = await axios.delete(
-        `${process.env.REACT_APP_API_URL}/trainerToUsermessages/${id}`
+        `${import.meta.env.VITE_API_URL}/trainerToUsermessages/${id}`
       );
       console.log("After the response in handleDeleteMessage", response);
       toast.success("Message deleted successfully");
@@ -194,7 +194,7 @@ const Messages = () => {
     try {
       console.log("inside the markAsSeen function");
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/mark-seen/${messageId}`
+        `${import.meta.env.VITE_API_URL}/mark-seen/${messageId}`
       );
 
       console.log("response is 177:", response.data);

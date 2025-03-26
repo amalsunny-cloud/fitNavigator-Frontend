@@ -24,7 +24,7 @@ const TrainerChangePassword = ({ show, onClose }) => {
       }
 
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/trainer-change-password`,
+        `${import.meta.env.VITE_API_URL}/trainer-change-password`,
         {
           newPassword: formData.newPassword,
           confirmPassword: formData.confirmPassword,

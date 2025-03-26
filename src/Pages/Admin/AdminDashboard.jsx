@@ -72,7 +72,7 @@ const AdminDashboard = () => {
     try {
       // console.log("inside the fetchUsers frontend function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetch-All-users`
+        `${import.meta.env.VITE_API_URL}/admin-fetch-All-users`
       );
       console.log("response after fetching:", response.data);
 
@@ -89,7 +89,7 @@ const AdminDashboard = () => {
     try {
       // console.log("inside the fetchUsers frontend function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetch-All-trainers`
+        `${import.meta.env.VITE_API_URL}/admin-fetch-All-trainers`
       );
       console.log("response after fetchAllTrainers:", response.data);
 
@@ -107,7 +107,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the fetchNoPlanUsers frontend");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetchNoPlanUsers`
+        `${import.meta.env.VITE_API_URL}/admin-fetchNoPlanUsers`
       );
 
       console.log("response is:", response.data);
@@ -137,7 +137,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the fetchAllUsersAttendances function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetchAllUsersAttendance`
+        `${import.meta.env.VITE_API_URL}/admin-fetchAllUsersAttendance`
       );
 
       console.log("response fetchAllUsersAttendances:", response.data);
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the fetchAllTrainersAttendances function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetchAllTrainersAttendance`
+        `${import.meta.env.VITE_API_URL}/admin-fetchAllTrainersAttendance`
       );
 
       console.log("response fetchAllTrainersAttendances:", response.data);
@@ -213,7 +213,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the getTotalRevenue function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetch-TotalRevenue`
+        `${import.meta.env.VITE_API_URL}/admin-fetch-TotalRevenue`
       );
 
       console.log("response after the getTotalRevenue:", response.data);
@@ -228,7 +228,7 @@ const AdminDashboard = () => {
     try {
       console.log("inside the revenueForChart function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetch-revenueForChart`
+        `${import.meta.env.VITE_API_URL}/admin-fetch-revenueForChart`
       );
 
       console.log("response in revenueForChart is:", response.data);
@@ -278,7 +278,7 @@ const AdminDashboard = () => {
       }
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/fetch-admindata/${adminId}`
+        `${import.meta.env.VITE_API_URL}/fetch-admindata/${adminId}`
       );
       console.log("response after fetchAdminData", response.data);
       setAdmin(response.data);

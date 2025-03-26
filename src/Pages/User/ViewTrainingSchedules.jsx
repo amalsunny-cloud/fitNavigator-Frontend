@@ -16,7 +16,7 @@ const ViewTrainingSchedules = () => {
       
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/gettrainer-schedules/${userId}`
+        `${import.meta.env.VITE_API_URL}/gettrainer-schedules/${userId}`
       );
       console.log("response is:", response);
       console.log("response data is:", response.data);

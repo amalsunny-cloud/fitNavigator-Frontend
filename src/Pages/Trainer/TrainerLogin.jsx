@@ -33,7 +33,7 @@ const TrainerLogin = () => {
           // Make an API call to the backend
           console.log("before try");
           
-          const response = await axios.post(`${process.env.REACT_APP_API_URL}/trainer-login`, {
+          const response = await axios.post(`${import.meta.env.VITE_API_URL}/trainer-login`, {
             email,
             password,
           });

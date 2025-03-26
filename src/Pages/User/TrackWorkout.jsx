@@ -191,7 +191,7 @@ const TrackWorkout = () => {
     try {
       const token = sessionStorage.getItem("userToken");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/getuserprogress`,
+        `${import.meta.env.VITE_API_URL}/getuserprogress`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -246,7 +246,7 @@ const TrackWorkout = () => {
   const fetchUserData = async () => {
     try {
       const token = sessionStorage.getItem("userToken");
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user-details`, {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/user-details`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -282,7 +282,7 @@ const TrackWorkout = () => {
       }
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/userprogress`,
+        `${import.meta.env.VITE_API_URL}/userprogress`,
         {
           fitnessGoal,
           progressData: newData,

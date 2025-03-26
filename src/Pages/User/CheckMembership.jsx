@@ -28,7 +28,7 @@ const CheckMembership = () => {
         console.log("---------------------------------");
         console.log("before the response of checkmemnbersip");
 
-        const plansResponse = await axios.get(`${process.env.REACT_APP_API_URL}/plans`);
+        const plansResponse = await axios.get(`${import.meta.env.VITE_API_URL}/plans`);
         setAllMembershipPlans(plansResponse.data.data || []);
 
         // Fetch user's current memberships if applicable
@@ -38,7 +38,7 @@ const CheckMembership = () => {
         console.log("before membershipResponse");
 
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/user/memberships/${userId}`
+          `${import.meta.env.VITE_API_URL}/user/memberships/${userId}`
         );
         console.log("after response ooo:", response);
 
@@ -99,7 +99,7 @@ const CheckMembership = () => {
 
     try {
       console.log("inside the handlePayment function");
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/create-order`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/create-order`, {
         amount: plan.price,
         currency: "INR",
         planId: plan._id,
@@ -137,7 +137,7 @@ const CheckMembership = () => {
             console.log("Inside 2nd try block");
 
             const verifyResponse = await axios.post(
-              `${process.env.REACT_APP_API_URL}/verify-payment`,
+              `${import.meta.env.VITE_API_URL}/verify-payment`,
               {
                 razorpay_order_id: order.id,
                 razorpay_payment_id: response.razorpay_payment_id,
@@ -162,7 +162,7 @@ const CheckMembership = () => {
 
               // Fetch updated membership data to get the new scheduled membership
               const updatedMembershipsResponse = await axios.get(
-                `${process.env.REACT_APP_API_URL}/user/memberships/${userId}`
+                `${import.meta.env.VITE_API_URL}/user/memberships/${userId}`
               );
 
               console.log(

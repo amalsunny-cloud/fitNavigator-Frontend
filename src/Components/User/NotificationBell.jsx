@@ -17,7 +17,7 @@ const NotificationBell = ({ userId }) => {
   const fetchReminders = async () => {
     try {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/user-retrieveAdminPaymentReminder/${userId}`
+        `${import.meta.env.VITE_API_URL}/user-retrieveAdminPaymentReminder/${userId}`
       );
       const data = Array.isArray(res.data) ? res.data : [res.data];
       setReminders(data);
@@ -30,7 +30,7 @@ const NotificationBell = ({ userId }) => {
   const markAsRead = async (id) => {
     try {
       console.log("Inside frontend markAsRead");
-      await axios.put(`${process.env.REACT_APP_API_URL}/user-mark-notification-read/${id}`);
+      await axios.put(`${import.meta.env.VITE_API_URL}/user-mark-notification-read/${id}`);
       fetchReminders();
       console.log("markAsRead button triggered");
       
@@ -42,7 +42,7 @@ const NotificationBell = ({ userId }) => {
   const markAllAsRead = async () => {
     try {
       console.log("Inside frontend markAllAsRead");
-      await axios.post(`${process.env.REACT_APP_API_URL}/user-mark-all-notifications-read`, { userId });
+      await axios.post(`${import.meta.env.VITE_API_URL}/user-mark-all-notifications-read`, { userId });
       fetchReminders();
       console.log("markAllAsRead button triggered");
 

@@ -57,7 +57,7 @@ const MemberManagement = () => {
       console.log("before the response");
       if (editingId) {
         // Send PUT request to update user
-        const response = await axios.put(`${process.env.REACT_APP_API_URL}/admin-user/${editingId}`, {
+        const response = await axios.put(`${import.meta.env.VITE_API_URL}/admin-user/${editingId}`, {
           username: userForm.name,
           email: userForm.email,
           // contact: userForm.contact,
@@ -67,7 +67,7 @@ const MemberManagement = () => {
         fetchUserData(); // Refresh the user list
       } else {
         // Send POST request to create new user
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin-userregister`, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/admin-userregister`, {
           username: userForm.name,
           email: userForm.email,
           // contact: userForm.contact,
@@ -111,7 +111,7 @@ const MemberManagement = () => {
     console.log("Editing ID:", editingId);
 
     if (editingId !== null) {
-      const response = await axios.put(`${process.env.REACT_APP_API_URL}/trainer/${editingId}`, trainerData);
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/trainer/${editingId}`, trainerData);
 
       if (response.status === 200) {
         fetchTrainerData(); // Refresh trainers list
@@ -120,7 +120,7 @@ const MemberManagement = () => {
     } else {
       console.log("Before posting for trainer register by admin");
       
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin-trainerregister`, trainerData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/admin-trainerregister`, trainerData);
 
       if (response.status === 201) {
         fetchTrainerData(); // Refresh trainers list
@@ -169,7 +169,7 @@ const MemberManagement = () => {
       if (type === 'user') {
         // Show confirmation dialog
         if (window.confirm('Are you sure you want to delete this user?')) {
-          const response = await axios.delete(`${process.env.REACT_APP_API_URL}/admin-user/${id}`);
+          const response = await axios.delete(`${import.meta.env.VITE_API_URL}/admin-user/${id}`);
           if (response.status === 200) {
             toast.success("User deleted successfully")
             fetchUserData(); // Refresh the user list
@@ -180,7 +180,7 @@ const MemberManagement = () => {
         
         console.log("before resonse");
         
-          const response = await axios.delete(`${process.env.REACT_APP_API_URL}/trainer/${id}`);
+          const response = await axios.delete(`${import.meta.env.VITE_API_URL}/trainer/${id}`);
           console.log("after response");
           console.log("Trainer deleted successfully:", response.data);
 

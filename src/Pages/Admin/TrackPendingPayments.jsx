@@ -52,7 +52,7 @@ const TrackPendingPayments = () => {
     try {
       // console.log("Inside the fetchFullDetails function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetchFullDetails`
+        `${import.meta.env.VITE_API_URL}/admin-fetchFullDetails`
       );
       
       const transformedData = transformUserData(response.data);
@@ -71,7 +71,7 @@ const TrackPendingPayments = () => {
     try {
       // console.log("inside the fetchUsers frontend function");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetchusers`
+        `${import.meta.env.VITE_API_URL}/admin-fetchusers`
       );
       // console.log("response after fetching:",response.data);
       setFetchedUsers(response.data);
@@ -131,7 +131,7 @@ const TrackPendingPayments = () => {
     try {
       console.log("Inside the fetchNoPlanUsers frontend");
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/admin-fetchNoPlanUsers`
+        `${import.meta.env.VITE_API_URL}/admin-fetchNoPlanUsers`
       );
 
       console.log("response is:", response.data);
@@ -156,7 +156,7 @@ const TrackPendingPayments = () => {
       // const userId = _id;
       const userId = _id ? _id : userId;
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/send-reminder-payment/${userId}`
+        `${import.meta.env.VITE_API_URL}/send-reminder-payment/${userId}`
       );
 
       console.log("response is:", response.data);
