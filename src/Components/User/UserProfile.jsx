@@ -11,31 +11,23 @@ const UserProfile = ({ showModal, handleClose }) => {
   const [userProfile, setUserProfile] = useState({
     username: "",
     purpose: "",
-    profileImage: null, // This will hold the image URL
+    profileImage: null, 
   });
 
-  const [profileImage, setProfileImage] = useState(null); // Raw file for upload
-  const [previewImage, setPreviewImage] = useState(null); // Base64 string for preview
+  const [profileImage, setProfileImage] = useState(null); 
+  const [previewImage, setPreviewImage] = useState(null); 
   const navigate = useNavigate();
   const userId = sessionStorage.getItem("userId");
-  // console.log("Userid is :",userId);
   
 
   // Fetch trainer profile on initial load
   useEffect(() => {
     const fetchUserProfile = async () => {
-      try {
-        // console.log("before the api call");
-        
+      try {        
         const response = await axios.get(
-          `http://localhost:3000/user/${userId}/profile`
+         `${process.env.REACT_APP_API_URL}/user/${userId}/profile`
         );
 
-        // console.log(response);
-        // console.log(response.data);
-        // console.log("Profile Image URL:", response.data.profileImage);
-
-        
         const { username, purpose, profileImage } = response.data;
         setUserProfile({ username, purpose, profileImage });
       } catch (error) {
@@ -48,7 +40,6 @@ const UserProfile = ({ showModal, handleClose }) => {
     }
   }, [userId]);
 
-  // console.log("userProfile:",userProfile);
   
 
   // Handle image change for preview
@@ -76,7 +67,7 @@ const UserProfile = ({ showModal, handleClose }) => {
 
       // Send FormData to the server
       const response = await axios.put(
-        `http://localhost:3000/user/${userId}/profile-image`,
+        `${process.env.REACT_APP_API_URL}/user/${userId}/profile-image`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -120,7 +111,7 @@ const UserProfile = ({ showModal, handleClose }) => {
                 <img src={previewImage} alt="Preview" className="profile-image" />
               ) : userProfile.profileImage ? (
                 <img
-                  src={`http://localhost:3000${userProfile.profileImage}`}
+                  src={`${process.env.REACT_APP_API_URL}/${userProfile.profileImage}`}
                   alt="Profile"
                   className="profile-image"
                 />

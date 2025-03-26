@@ -191,7 +191,7 @@ const TrackWorkout = () => {
     try {
       const token = sessionStorage.getItem("userToken");
       const response = await axios.get(
-        "http://localhost:3000/getuserprogress",
+        `${process.env.REACT_APP_API_URL}/getuserprogress`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -246,7 +246,7 @@ const TrackWorkout = () => {
   const fetchUserData = async () => {
     try {
       const token = sessionStorage.getItem("userToken");
-      const response = await axios.get("http://localhost:3000/user-details", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/user-details`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -269,57 +269,7 @@ const TrackWorkout = () => {
     }
   };
 
-  // Update the postProgress function:
-  // const postProgress = async (newData) => {
-  //   try {
-  //     const token = sessionStorage.getItem('userToken');
-
-  //     // Calculate BMI if height/weight exist
-  //     if (newData.height && newData.weight) {
-  //       const height = newData.height / 100;
-  //       const weight = newData.weight;
-  //       const bmi = (weight / (height * height)).toFixed(2);
-  //       newData.bmi = parseFloat(bmi);
-  //       setCurrentBMI(bmi); // Update BMI immediately
-  //     }
-
-  //     // Optimistic update
-  //     const tempEntry = {
-  //       fitnessGoal,
-  //       date: new Date().toISOString(),
-  //       progressData: { ...newData, date: new Date().toISOString() }
-  //     };
-
-  //     setProgressHistory(prev => {
-  //       const updated = [...prev, tempEntry];
-  //       updateChartData(updated);
-  //       return updated;
-  //     });
-
-  //     const response = await axios.post(
-  //       'http://localhost:3000/userprogress',
-  //       {
-  //         fitnessGoal,
-  //         progressData: newData,
-  //       },
-  //       { headers: { Authorization: `Bearer ${token}` } }
-  //     );
-
-  //     // Merge server response
-  //     setProgressHistory(prev => {
-  //       const serverEntry = response.data.newProgress;
-  //       return prev.map(entry =>
-  //         entry.date === tempEntry.date ? serverEntry : entry
-  //       );
-  //     });
-
-  //     setInputData({});
-  //   } catch (error) {
-  //     console.error('Error saving progress:', error);
-  //     // Rollback on error
-  //     setProgressHistory(prev => prev.filter(entry => entry.date !== tempEntry.date));
-  //   }
-  // };
+  
 
   const postProgress = async (newData) => {
     try {
@@ -332,7 +282,7 @@ const TrackWorkout = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:3000/userprogress",
+        `${process.env.REACT_APP_API_URL}/userprogress`,
         {
           fitnessGoal,
           progressData: newData,

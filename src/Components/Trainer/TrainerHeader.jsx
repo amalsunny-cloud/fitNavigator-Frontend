@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { User } from "lucide-react";
 import "../../Styles/TrainerHeader.css";
 
 const TrainerHeader = () => {

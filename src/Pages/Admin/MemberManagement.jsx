@@ -57,18 +57,17 @@ const MemberManagement = () => {
       console.log("before the response");
       if (editingId) {
         // Send PUT request to update user
-        const response = await axios.put(`http://localhost:3000/admin-user/${editingId}`, {
+        const response = await axios.put(`${process.env.REACT_APP_API_URL}/admin-user/${editingId}`, {
           username: userForm.name,
           email: userForm.email,
           // contact: userForm.contact,
           purpose: userForm.purpose,
         });
-        // alert(response.data.message || "User updated successfully!");
         toast.success("User updated successfully!")
         fetchUserData(); // Refresh the user list
       } else {
         // Send POST request to create new user
-        const response = await axios.post("http://localhost:3000/admin-userregister", {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin-userregister`, {
           username: userForm.name,
           email: userForm.email,
           // contact: userForm.contact,
@@ -112,21 +111,19 @@ const MemberManagement = () => {
     console.log("Editing ID:", editingId);
 
     if (editingId !== null) {
-      const response = await axios.put(`http://localhost:3000/trainer/${editingId}`, trainerData);
+      const response = await axios.put(`${process.env.REACT_APP_API_URL}/trainer/${editingId}`, trainerData);
 
       if (response.status === 200) {
         fetchTrainerData(); // Refresh trainers list
-        // alert("Trainer updated successfully!");
         toast.success("Trainer updated successfully!")
       }
     } else {
       console.log("Before posting for trainer register by admin");
       
-      const response = await axios.post('http://localhost:3000/admin-trainerregister', trainerData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin-trainerregister`, trainerData);
 
       if (response.status === 201) {
         fetchTrainerData(); // Refresh trainers list
-        // alert("Trainer registered successfully!");
         toast.success("Trainer registered successfully!")
 
       }
@@ -136,7 +133,6 @@ const MemberManagement = () => {
     setEditingId(null);
   } catch (error) {
     console.error("Error managing trainer:", error.response?.data || error.message);
-    // alert(error.response?.data?.message || "Operation failed");
     toast.error("Operation failed")
   }
 };
@@ -173,20 +169,18 @@ const MemberManagement = () => {
       if (type === 'user') {
         // Show confirmation dialog
         if (window.confirm('Are you sure you want to delete this user?')) {
-          const response = await axios.delete(`http://localhost:3000/admin-user/${id}`);
+          const response = await axios.delete(`${process.env.REACT_APP_API_URL}/admin-user/${id}`);
           if (response.status === 200) {
-            // alert('User deleted successfully');
             toast.success("User deleted successfully")
             fetchUserData(); // Refresh the user list
           }
         }
       } 
       else {
-        // For trainers (assuming you have a similar endpoint for trainers)
-        // if (window.confirm('Are you sure you want to delete this trainer?')) {
+        
         console.log("before resonse");
         
-          const response = await axios.delete(`http://localhost:3000/trainer/${id}`);
+          const response = await axios.delete(`${process.env.REACT_APP_API_URL}/trainer/${id}`);
           console.log("after response");
           console.log("Trainer deleted successfully:", response.data);
 
@@ -195,7 +189,6 @@ const MemberManagement = () => {
             console.log("entered inside");
             
             setTrainerName(trainerName.filter(trainer => trainer.id !== id));
-            // alert('Trainer deleted successfully');
             toast.success("Trainer deleted successfully")
             fetchTrainerData();
           }
@@ -203,8 +196,6 @@ const MemberManagement = () => {
       }
     } catch (error) {
       console.error("Error deleting:", error);
-      // alert(error.response?.data?.message || "Failed to delete. Please try again.");
-
       toast.error("Failed to delete")
     }
   };
@@ -286,27 +277,11 @@ const MemberManagement = () => {
                   onChange={(e) => setUserForm({...userForm, email: e.target.value})}
                   required
                 />
-                {/* </div> */}
                 
-                {/* <input
-                  type="tel"
-                  placeholder="Contact Number"
-                  value={userForm.contact}
-                  onChange={(e) => setUserForm({...userForm, contact: e.target.value})}
-                  required
-                /> */}
-                {/* <input
-                  type="text"
-                  placeholder="purpose"
-                  value={userForm.purpose}
-                  onChange={(e) => setUserForm({...userForm, purpose: e.target.value})}
-                  required
-                /> */}
 
                   {console.log("userForm ATT:",userForm)
                   }
 
-                  {/* <div className="second-input-section"> */}
                 <select value={userForm.purpose}
                   onChange={(e) => setUserForm({...userForm, purpose: e.target.value})}
                   required>
@@ -414,20 +389,7 @@ const MemberManagement = () => {
                   onChange={(e) => setTrainerForm({...trainerForm, email: e.target.value})}
                   required
                 />
-                {/* <input
-                  type="tel"
-                  placeholder="Contact Number"
-                  value={trainerForm.contact}
-                  onChange={(e) => setTrainerForm({...trainerForm, contact: e.target.value})}
-                  required
-                /> */}
-                {/* <input
-                  type="text"
-                  placeholder="Specialization"
-                  value={trainerForm.specialization}
-                  onChange={(e) => setTrainerForm({...trainerForm, specialization: e.target.value})}
-                  required
-                /> */}
+                
 
                 <select value={trainerForm.specialization}
                   onChange={(e) => setTrainerForm({...trainerForm, specialization: e.target.value})}

@@ -72,7 +72,7 @@ const AdminDashboard = () => {
     try {
       // console.log("inside the fetchUsers frontend function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetch-All-users"
+        `${process.env.REACT_APP_API_URL}/admin-fetch-All-users`
       );
       console.log("response after fetching:", response.data);
 
@@ -89,7 +89,7 @@ const AdminDashboard = () => {
     try {
       // console.log("inside the fetchUsers frontend function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetch-All-trainers"
+        `${process.env.REACT_APP_API_URL}/admin-fetch-All-trainers`
       );
       console.log("response after fetchAllTrainers:", response.data);
 
@@ -107,7 +107,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the fetchNoPlanUsers frontend");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetchNoPlanUsers"
+        `${process.env.REACT_APP_API_URL}/admin-fetchNoPlanUsers`
       );
 
       console.log("response is:", response.data);
@@ -137,7 +137,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the fetchAllUsersAttendances function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetchAllUsersAttendance"
+        `${process.env.REACT_APP_API_URL}/admin-fetchAllUsersAttendance`
       );
 
       console.log("response fetchAllUsersAttendances:", response.data);
@@ -175,7 +175,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the fetchAllTrainersAttendances function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetchAllTrainersAttendance"
+        `${process.env.REACT_APP_API_URL}/admin-fetchAllTrainersAttendance`
       );
 
       console.log("response fetchAllTrainersAttendances:", response.data);
@@ -213,7 +213,7 @@ const AdminDashboard = () => {
     try {
       console.log("Inside the getTotalRevenue function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetch-TotalRevenue"
+        `${process.env.REACT_APP_API_URL}/admin-fetch-TotalRevenue`
       );
 
       console.log("response after the getTotalRevenue:", response.data);
@@ -223,44 +223,12 @@ const AdminDashboard = () => {
     }
   };
 
-  // const revenueForChart = async () => {
-  //   try {
-  //     console.log("inside the revenueForChart function");
-  //     const response = await axios.get(
-  //       "http://localhost:3000/admin-fetch-revenueForChart"
-  //     );
-
-  //     console.log("response in revenueForChart is:", response.data);
-
-  //     const groupedData = response.data.reduce((acc, entry) => {
-  //       const formattedDate = entry.paymentDate.split("T")[0];
-
-  //       if (acc[formattedDate]) {
-  //         acc[formattedDate] += entry.amount;
-  //       } else {
-  //         acc[formattedDate] = entry.amount;
-  //       }
-
-  //       return acc;
-  //     }, {});
-
-  //     const formattedData = Object.keys(groupedData).map((date) => ({
-  //       date,
-  //       amount: groupedData[date],
-  //     }));
-  //     console.log("amount in revenueForChart is:", formattedData);
-
-  //     setAmountChart(formattedData);
-  //   } catch (error) {
-  //     console.error("Error at the frontend revenueForChart");
-  //   }
-  // };
-
+  
   const revenueForChart = async () => {
     try {
       console.log("inside the revenueForChart function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetch-revenueForChart"
+        `${process.env.REACT_APP_API_URL}/admin-fetch-revenueForChart`
       );
 
       console.log("response in revenueForChart is:", response.data);
@@ -310,7 +278,7 @@ const AdminDashboard = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:3000/fetch-admindata/${adminId}`
+        `${process.env.REACT_APP_API_URL}/fetch-admindata/${adminId}`
       );
       console.log("response after fetchAdminData", response.data);
       setAdmin(response.data);
@@ -337,12 +305,7 @@ const AdminDashboard = () => {
     { month: "Jul", value: 9000 },
   ];
 
-  // const stats = [
-  //   { title: "Total Members", value: fetchedUsersNumber },
-  //   { title: "Active Trainers", value: fetchedTrainersNumber },
-  //   { title: "Monthly Revenue", value: totalRevenueValue },
-  //   { title: "Pending Payments", value: noPlanUserNumber },
-  // ];
+  
 
   const stats = [
     {
@@ -454,12 +417,7 @@ const AdminDashboard = () => {
 
   return (
     <>
-      {/* Hamburger Menu Icon */}
-      {/* <div style={hamburgerStyle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        <div style={barStyle}></div>
-        <div style={barStyle}></div>
-        <div style={barStyle}></div>
-      </div> */}
+      
 
       <div
         className="hamburger-menu"
@@ -470,8 +428,6 @@ const AdminDashboard = () => {
         <div className="menu-bar"></div>
       </div>
 
-      {/* Overlay */}
-      {/* <div style={overlayStyle} onClick={() => setIsMenuOpen(false)}></div> */}
 
       <div
         className={`sidebar-overlay ${isMenuOpen ? "active" : ""}`}
@@ -528,10 +484,6 @@ const AdminDashboard = () => {
             Billing Center
           </Link>
 
-          {/* <Link to="/admin-change-password" style={linkStyle} className="hover-scale">
-            <DollarSign size={20} />
-            Change Password
-          </Link> */}
 
           <Link
             onClick={() => setShowPasswordModal(true)}
@@ -557,9 +509,7 @@ const AdminDashboard = () => {
       {/* <div className="dashboard"> */}
       <div className="admin-dashboard-container">
         {/* Header */}
-        {/* <div className="admin-header">
-          <h1>Welcome, {admin.username} (Admin)</h1>
-        </div> */}
+        
 
         {/* Stats Cards */}
         <div className="metrics-grid-admin">

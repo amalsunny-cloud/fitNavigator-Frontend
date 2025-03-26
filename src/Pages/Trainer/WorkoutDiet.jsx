@@ -41,7 +41,7 @@ const WorkoutDiet = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:3000/get-all-users",
+          `${process.env.REACT_APP_API_URL}/get-all-users`,
           {
             params: { trainerId },
           }
@@ -66,7 +66,7 @@ const WorkoutDiet = () => {
   const fetchWorkouts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/get-all-workouts"
+        `${process.env.REACT_APP_API_URL}/get-all-workouts`
       );
       const workoutDetails = response.data.workoutPlans.map((workout) => ({
         id: workout._id,
@@ -86,7 +86,7 @@ const WorkoutDiet = () => {
   // Fetch all diet plans
   const fetchDietPlans = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/get-dietplans");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/get-dietplans`);
       setDietPlans({
         message: response.data.message || "Successfully fetched diet plans",
         response: response.data.response || [],
@@ -124,7 +124,7 @@ const WorkoutDiet = () => {
       if (editingId) {
         if (formType === "workout") {
           await axios.put(
-            `http://localhost:3000/update-assign-workoutplan/${editingId}`,
+            `${process.env.REACT_APP_API_URL}/update-assign-workoutplan/${editingId}`,
             {
               planname: formData.name,
               instructions: formData.description,
@@ -140,7 +140,7 @@ const WorkoutDiet = () => {
           console.log("random for update diet plan...");
 
           await axios.put(
-            `http://localhost:3000/update-dietplan/${editingId}`,
+            `${process.env.REACT_APP_API_URL}/update-dietplan/${editingId}`,
             {
               planname: formData.name,
               instructions: formData.description,
@@ -156,7 +156,7 @@ const WorkoutDiet = () => {
         }
       } else {
         if (formType === "workout") {
-          await axios.post("http://localhost:3000/assign-workouts", {
+          await axios.post(`${process.env.REACT_APP_API_URL}/assign-workouts`, {
             planname: formData.name,
             instructions: formData.description,
             userId: formData.userId,
@@ -166,7 +166,7 @@ const WorkoutDiet = () => {
 
           await fetchWorkouts();
         } else {
-          await axios.post("http://localhost:3000/post-dietplans", {
+          await axios.post(`${process.env.REACT_APP_API_URL}/post-dietplans`, {
             planname: formData.name,
             instructions: formData.description,
             userId: formData.userId,
@@ -207,7 +207,7 @@ const WorkoutDiet = () => {
         console.log("id in handle Delete:", id);
 
         const response1 = await axios.delete(
-          `http://localhost:3000/delete-assignworkout/${id}`
+          `${process.env.REACT_APP_API_URL}/delete-assignworkout/${id}`
         );
 
         console.log("response1 is :", response1);
@@ -217,7 +217,7 @@ const WorkoutDiet = () => {
       } else {
         console.log("id in handle Delete 2:", id);
         const response2 = await axios.delete(
-          `http://localhost:3000/delete-dietplan/${id}`
+          `${process.env.REACT_APP_API_URL}/delete-dietplan/${id}`
         );
 
         console.log("response 2 is:", response2);

@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 const TrainerChangePassword = ({ show, onClose }) => {
   const [formData, setFormData] = useState({
-    // currentPassword: '',
     newPassword: "",
     confirmPassword: "",
   });
@@ -25,7 +24,7 @@ const TrainerChangePassword = ({ show, onClose }) => {
       }
 
       const response = await axios.put(
-        "http://localhost:3000/trainer-change-password",
+        `${process.env.REACT_APP_API_URL}/trainer-change-password`,
         {
           newPassword: formData.newPassword,
           confirmPassword: formData.confirmPassword,
@@ -76,14 +75,7 @@ const TrainerChangePassword = ({ show, onClose }) => {
             className="password-form-trainer-change-password"
           >
             <div className="form-group-trainer-change-password">
-              {/* <Lock size={18} className="input-icon-trainer-change-password" /> */}
-              {/* <input
-              type="password"
-              placeholder="Current Password"
-              value={formData.currentPassword}
-              onChange={(e) => setFormData({...formData, currentPassword: e.target.value})}
-              required
-            /> */}
+              
             </div>
 
             <div className="form-group-trainer-change-password">
@@ -96,7 +88,6 @@ const TrainerChangePassword = ({ show, onClose }) => {
                   setFormData({ ...formData, newPassword: e.target.value })
                 }
                 required
-                //   minLength="8"
               />
             </div>
 
@@ -110,7 +101,6 @@ const TrainerChangePassword = ({ show, onClose }) => {
                   setFormData({ ...formData, confirmPassword: e.target.value })
                 }
                 required
-                //   minLength="8"
               />
             </div>
 
@@ -140,22 +130,7 @@ const TrainerChangePassword = ({ show, onClose }) => {
           </form>
         </div>
       </div>
-      {/* <Toaster
-        position="top-center"
-        toastOptions={{
-          duration: 4000,
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
-          success: {
-            iconTheme: { primary: "#4CAF50", secondary: "#fff" },
-          },
-          error: {
-            iconTheme: { primary: "#FF5252", secondary: "#fff" },
-          },
-        }}
-      /> */}
+      
     </>
   );
 };

@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
 
     const fetchUserData = async() => {
         try {
-            const response = await axios.get("http://localhost:3000/admin-userregister");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/admin-userregister`);
             setUserName(response.data);
         } catch (error) {
             console.error("Error fetching user data:", error);
@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
 
     const fetchTrainerData = async() => {
         try {
-            const response = await axios.get("http://localhost:3000/admin-trainerregister");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/admin-trainerregister`);
             setTrainerName(response.data);
         } catch (error) {
             console.error("Error fetching user data:", error);
@@ -27,8 +27,8 @@ export const UserProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchUserData(); // Fetch user data on mount
-        fetchTrainerData(); // Fetch user data on mount
+        fetchUserData(); 
+        fetchTrainerData(); 
     }, []);
 
     return (

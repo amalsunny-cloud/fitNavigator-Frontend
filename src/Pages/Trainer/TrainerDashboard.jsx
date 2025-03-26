@@ -54,17 +54,6 @@ const TrainerDashboard = () => {
   const [countAdminMessageTrainerDashboard, setCountAdminMessageTrainerDashboard] = useState(0);
   const [totalMessagesCount, setTotalMessagesCount] = useState(0);
 
-  //   const array = ['apple', 'banana', 'orange', 'apple', 'kiwi'];
-
-  // const hasDuplicates = array.some((item, index) => array.indexOf(item) !== index);
-  // console.log("hasDuplicates is:", hasDuplicates);
-
-  // if (hasDuplicates) {
-  //     console.log('There are duplicates in the array.');
-  // } else {
-  //     console.log('No duplicates found.');
-  // }
-
   const trainerId = sessionStorage.getItem("trainerId");
   console.log("trainerId is:", trainerId);
 
@@ -74,15 +63,14 @@ const TrainerDashboard = () => {
 
   const fetchTrainerData = async () => {
     try {
-      // console.log("inside the fetchTrainerData frontend");
-      // console.log("trainerId iss:", trainerId);
+      
       if (!trainerId) {
         console.error("Trainer ID not found in sessionStorage");
         return;
       }
 
       const response = await axios.get(
-        `http://localhost:3000/fetch-trainerdata/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/fetch-trainerdata/${trainerId}`
       );
       // console.log("response after fetchTrainerData", response.data);
       setTrainer(response.data);
@@ -119,16 +107,6 @@ const TrainerDashboard = () => {
 
   const [numUser, setNumUser] = useState(0);
 
-  // const stats = [
-  //   { title: "Assigned Members", value: numUser },
-  //   { title: "Today's Classes", value: classScheduleCount || "Nil" },
-  //   { title: "Average Attendance", value: `${totalUserAttendanceTrainerDashboard} % ` || "Nil" },
-  //   { title: "notifications", value: "4" },
-  // ];
-
-
-
-
 
   const stats = [
     { 
@@ -158,15 +136,12 @@ const TrainerDashboard = () => {
   ];
 
 
-
-
   const sidebarStyle = {
     position: "fixed",
     top: "0",
     left: isMenuOpen ? "0" : "-400px",
     width: "400px",
     height: "100%",
-    // backgroundColor: '#8594e4',
     background: "linear-gradient(to right, #8594e4, #37476d)",
 
     boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
@@ -191,7 +166,6 @@ const TrainerDashboard = () => {
     top: "10px",
     right: "10px",
     padding: "10px 20px",
-    // backgroundColor: "#18daff",
     backgroundColor: "#394a51",
     width: "100px",
     color: "#fff",
@@ -237,55 +211,16 @@ const TrainerDashboard = () => {
 
   const linkStyle = {
     textDecoration: "none",
-    color: "#004085", // Dark blue text for better contrast
+    color: "#004085", 
     fontWeight: "bold",
     fontSize: "18px",
   };
 
 
-  // const fetchNotificationsToTrainerDashboard = async()=>{
-  //   try{
-  //     console.log("Inside the notificationsToTrainerDashboard");
-  //     const response = await axios.get(`http://localhost:3000/fetchNotificationsToTrainerDashboard/${trainerId}`)
-  //     console.log("After the response of notificationTrainer :", response.data.count);
-
-  //     setCountNotificationTrainerDashboard(response.data.count)
-      
-  //   }
-  //   catch(error){
-  //     console.error("Error at the frontend notificationsToTrainerDashboard");
-  //     toast.error("Error fetching notifications")
-  //   }
-  // }
-
-  // const fetchAdminMessageForTrainerDashboard = async()=>{
-  //   try{
-  //     console.log("Inside the fetchAdminMessageForTrainerDashboardd");
-  //     const response = await axios.get('http://localhost:3000/fetchAdminMessageForTrainerDashboard')
-  //     console.log("After the response of admin messages :", response.data.count);
-
-  //     setCountAdminMessageTrainerDashboard(response.data.count)
-  //     updateTotalMessagesForTrainerDashboard(count)
-  //   }
-  //   catch(error){
-  //     console.error("Error at the frontend fetchAdminMessageForTrainerDashboard");
-  //     toast.error("Error fetching admin messages")
-  //   }
-  // }
-
-
-  // const updateTotalMessagesForTrainerDashboard = (notificationCount,adminMessageCount)=>{
-  //   setTotalMessageCount(notificationCount + adminMessageCount)
-  // }
-
-
-
-
-
   const fetchNotificationsToTrainerDashboard = async () => {
     try {
       console.log("Inside the notificationsToTrainerDashboard");
-      const response = await axios.get(`http://localhost:3000/fetchNotificationsToTrainerDashboard/${trainerId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetchNotificationsToTrainerDashboard/${trainerId}`);
       console.log("After the response of notificationTrainer:", response.data.count);
 
       setCountNotificationTrainerDashboard(response.data.count);
@@ -299,7 +234,7 @@ const TrainerDashboard = () => {
   const fetchAdminMessageForTrainerDashboard = async () => {
     try {
       console.log("Inside the fetchAdminMessageForTrainerDashboard");
-      const response = await axios.get("http://localhost:3000/fetchAdminMessageForTrainerDashboard");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetchAdminMessageForTrainerDashboard`);
       console.log("After the response of admin messages:", response.data.count);
 
       setCountAdminMessageTrainerDashboard(response.data.count);
@@ -310,12 +245,7 @@ const TrainerDashboard = () => {
     }
   };
 
-  // Function to update the total count
-  // const updateTotalMessages = (notificationCount, adminMessageCount) => {
-  //   setTotalMessagesCount(notificationCount + adminMessageCount);
-  // };
   
-
   useEffect(() => {
     setTotalMessagesCount(countNotificationTrainerDashboard + countAdminMessageTrainerDashboard);
   }, [countNotificationTrainerDashboard, countAdminMessageTrainerDashboard]); 
@@ -324,7 +254,7 @@ const TrainerDashboard = () => {
   const fetchTodaysClassSchedulingsTrainerDashboard = async()=>{
     try{
       console.log("Inside the fetchTodaysClassSchedulingsTrainerDashboard");
-      const response = await axios.get(`http://localhost:3000/fetchTodaysClassSchedulingsTrainerDashboard/${trainerId}`)
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/fetchTodaysClassSchedulingsTrainerDashboard/${trainerId}`)
       console.log("response.data iss:",response.data);
       const ScheduleCount = response.data.length;
       console.log("ScheduleCount:",ScheduleCount);
@@ -343,7 +273,7 @@ const TrainerDashboard = () => {
     try {
       // console.log("inside the getuserattendance frontend");
       const response = await axios.get(
-        `http://localhost:3000/getuserattendance/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/getuserattendance/${trainerId}`
       );
       // console.log("response after getuserattendance:", response.data);
       console.log("response after getuserattendance:", response.data.data);
@@ -370,7 +300,7 @@ const TrainerDashboard = () => {
     try {
       // console.log("inside the fetchTrainersUsers frontend");
       const response = await axios.get(
-        `http://localhost:3000/get-all-users/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/get-all-users/${trainerId}`
       );
       // console.log("response after getting:", response.data);
       const count = response.data.data.length;
@@ -392,7 +322,7 @@ const TrainerDashboard = () => {
     try {
       // console.log("inside the frontend fetchAllUsersProgressOfTrainer");
       const response = await axios.get(
-        `http://localhost:3000/fetchTrainer-all-user-progress/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/fetchTrainer-all-user-progress/${trainerId}`
       );
 
       // console.log("response in 194:", response.data);
@@ -488,24 +418,15 @@ const TrainerDashboard = () => {
           // const progressPercentage = progressPercentages.toFixed(2);
           // console.log("progressPercentage after:",progressPercentage );
         });
-        // console.log("progressComparison is:", progressComparison);
-
-
-
-        // const addedPercentage = progressComparison.map((a,b)=>a+b)
-        // console.log("addedPercentage is:",addedPercentage );
+        
 
         const totalProgressPercentages = progressComparison
           .map((item) => parseFloat(item.progressPercentage)) // Convert "%"-string to number
           .reduce((sum, value) => sum + value, 0); // Sum all values
 
-        // console.log("Total Progress Percentage:", totalProgressPercentages);
 
         const totalProgressPercentage = totalProgressPercentages.toFixed(2);
-        // console.log(
-        //   "Total Progress Percentage fixed:",
-        //   totalProgressPercentage
-        // );
+        
 
         setMuscleProgressDashboard(totalProgressPercentage);
       } else if (fitnessGoalAccessed === "Endurance") {
@@ -535,11 +456,7 @@ const TrainerDashboard = () => {
   return (
     <>
       {/* Hamburger Menu Icon */}
-      {/* <div style={hamburgerStyle} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        <div style={barStyle}></div>
-        <div style={barStyle}></div>
-        <div style={barStyle}></div>
-      </div> */}
+      
 
 
 
@@ -550,7 +467,6 @@ const TrainerDashboard = () => {
       </div>
 
       {/* Overlay */}
-      {/* <div style={overlayStyle} onClick={() => setIsMenuOpen(false)}></div> */}
 
       <div className={`sidebar-overlay ${isMenuOpen ? 'active' : ''}`} 
            onClick={() => setIsMenuOpen(false)}></div>
@@ -609,7 +525,6 @@ const TrainerDashboard = () => {
             <h1 className="neon-title">Training Command Center</h1>
             <p className="dashboard-subtitle">Welcome back, {trainer.username} 👋</p>
           {/* </div> */}
-          {/* <NotificationBell userId={trainer._id} /> */}
         </div>
 
         {/* Stats Cards */}

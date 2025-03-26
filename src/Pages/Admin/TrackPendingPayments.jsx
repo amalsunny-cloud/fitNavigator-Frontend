@@ -52,10 +52,9 @@ const TrackPendingPayments = () => {
     try {
       // console.log("Inside the fetchFullDetails function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetchFullDetails"
+        `${process.env.REACT_APP_API_URL}/admin-fetchFullDetails`
       );
-      // console.log("response after fetchFullDetails",response.data);
-      // setFullDetails(response.data)
+      
       const transformedData = transformUserData(response.data);
       setFullDetails(transformedData);
     } catch (error) {
@@ -72,7 +71,7 @@ const TrackPendingPayments = () => {
     try {
       // console.log("inside the fetchUsers frontend function");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetchusers"
+        `${process.env.REACT_APP_API_URL}/admin-fetchusers`
       );
       // console.log("response after fetching:",response.data);
       setFetchedUsers(response.data);
@@ -132,7 +131,7 @@ const TrackPendingPayments = () => {
     try {
       console.log("Inside the fetchNoPlanUsers frontend");
       const response = await axios.get(
-        "http://localhost:3000/admin-fetchNoPlanUsers"
+        `${process.env.REACT_APP_API_URL}/admin-fetchNoPlanUsers`
       );
 
       console.log("response is:", response.data);
@@ -157,7 +156,7 @@ const TrackPendingPayments = () => {
       // const userId = _id;
       const userId = _id ? _id : userId;
       const response = await axios.post(
-        `http://localhost:3000/send-reminder-payment/${userId}`
+        `${process.env.REACT_APP_API_URL}/send-reminder-payment/${userId}`
       );
 
       console.log("response is:", response.data);
@@ -171,10 +170,7 @@ const TrackPendingPayments = () => {
     }
   };
 
-  // Remove this line from the render body:
-  // setPlanCountsNumber(planCounts)
-
-  // Add this useEffect instead:
+  
   useEffect(() => {
     const calculatePlanCounts = () => {
       console.log("Inside the calculatePlanCounts function");
@@ -190,7 +186,7 @@ const TrackPendingPayments = () => {
     };
 
     calculatePlanCounts();
-  }, [fullDetails]); // Add dependency on fullDetails
+  }, [fullDetails]); 
 
   const unameOfNoPlan = noPlanUser.map((entry) => entry.username);
   console.log("unameOfNoPlan:", unameOfNoPlan);

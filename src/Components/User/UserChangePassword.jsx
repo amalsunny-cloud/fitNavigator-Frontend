@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 const UserChangePassword = ({ show, onClose }) => {
   const [formData, setFormData] = useState({
-    // currentPassword: '',
     newPassword: "",
     confirmPassword: "",
   });
@@ -27,7 +26,7 @@ const UserChangePassword = ({ show, onClose }) => {
       console.log("Before sending api request");
       
       const response = await axios.put(
-        "http://localhost:3000/user-change-password",
+        `${process.env.REACT_APP_API_URL}/user-change-password`,
         {
           newPassword: formData.newPassword,
           confirmPassword: formData.confirmPassword,
@@ -80,14 +79,7 @@ const UserChangePassword = ({ show, onClose }) => {
             className="password-form-user-change-password"
           >
             <div className="form-group-user-change-password">
-              {/* <Lock size={18} className="input-icon-user-change-password" /> */}
-              {/* <input
-              type="password"
-              placeholder="Current Password"
-              value={formData.currentPassword}
-              onChange={(e) => setFormData({...formData, currentPassword: e.target.value})}
-              required
-            /> */}
+              
             </div>
 
             <div className="form-group-user-change-password">
@@ -100,7 +92,6 @@ const UserChangePassword = ({ show, onClose }) => {
                   setFormData({ ...formData, newPassword: e.target.value })
                 }
                 required
-                //   minLength="8"
               />
             </div>
 

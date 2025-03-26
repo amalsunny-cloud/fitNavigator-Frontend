@@ -41,7 +41,7 @@ const SendMessages = () => {
       setLoading(true);
       setError(null);
       const response = await axios.get(
-        `http://localhost:3000/messages?type=${activeTab}&search=${searchTerm}`
+        `${process.env.REACT_APP_API_URL}/messages?type=${activeTab}&search=${searchTerm}`
       );
       setMessageHistory(response.data.data.messages);
     } catch (error) {
@@ -66,7 +66,7 @@ const SendMessages = () => {
       }
 
       console.log("Before response");
-      const response = await axios.post("http://localhost:3000/messages", {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/messages`, {
         subject: messageForm.subject,
         message: messageForm.message,
         recipients: messageForm.recipients,

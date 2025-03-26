@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-import '../../Styles/TrainerLogin.css'; // Import external CSS file for styling
+
+import '../../Styles/TrainerLogin.css'; 
 import axios from 'axios'
 
 import { FaLock, FaEnvelope, FaSignInAlt } from 'react-icons/fa';
@@ -29,16 +28,12 @@ const TrainerLogin = () => {
 
             return;
         } 
-        // else {
-        //     toast.success("Login Successful");
-        //     navigate('/trainer/dashboard');
-        // }
-
+        
         try {
           // Make an API call to the backend
           console.log("before try");
           
-          const response = await axios.post('http://localhost:3000/trainer-login', {
+          const response = await axios.post(`${process.env.REACT_APP_API_URL}/trainer-login`, {
             email,
             password,
           });
@@ -71,56 +66,7 @@ const TrainerLogin = () => {
 
     return (
         <>
-         {/* <div className="login-container">
-      <div className="login-card">
-        <div className="card-header">
          
-          <div className="auth-icon">
-                        🔐
-            </div>
-        </div>
-        
-        <div className="card-body">
-          <h2>Welcome Back!</h2>
-          
-          <form onSubmit={handleSubmit} className="login-form">
-            <div className="">
-            <label className="">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                value={credentials.email}
-                onChange={handleChange}
-                className="form-input"
-              />
-            </div>
-            
-            <div className="">
-            <label className="">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={credentials.password}
-                onChange={handleChange}
-                className="form-input"
-              />
-            </div>
-            
-            
-            <button type="submit" className="login-button">
-              Sign In
-            </button>
-          </form>
-    
-        </div>
-      </div>
-      </div>
-      <ToastContainer/> */}
-
-
-
-
-
 <div className="auth-container">
             <div className="auth-illustration">
                 <img src={trainerAuthImage} alt="Trainer Authentication" />
@@ -174,17 +120,7 @@ const TrainerLogin = () => {
                     </button>
                 </form>
 
-                {/* <div className="auth-footer">
-                    <p>
-                        Don't have an account?{' '}
-                        <span
-                            onClick={() => navigate('/trainer/register')}
-                            className="toggle-auth hover-effect"
-                        >
-                            Register Now
-                        </span>
-                    </p>
-                </div> */}
+                
             </div>
 
             <Toaster

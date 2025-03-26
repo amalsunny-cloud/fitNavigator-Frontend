@@ -13,16 +13,10 @@ const ViewTrainingSchedules = () => {
   const fetchTrainingSchedules = async () => {
     try {
       console.log("Inside fetchTrainingSchedules");
-      // const token = sessionStorage.getItem('userToken');
-
-      // const response = await axios.get('http://localhost:3000/gettrainer-schedules',{
-      //   headers:{
-      //     Authorization: `Bearer ${token}`
-      //   }
-      // });
+      
 
       const response = await axios.get(
-        `http://localhost:3000/gettrainer-schedules/${userId}`
+        `${process.env.REACT_APP_API_URL}/gettrainer-schedules/${userId}`
       );
       console.log("response is:", response);
       console.log("response data is:", response.data);

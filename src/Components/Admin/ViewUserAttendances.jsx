@@ -17,7 +17,7 @@ const ViewUserAttendances = ({ setViewUserAttendances }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:3000/admin-fetch-user-attendance`
+          `${process.env.REACT_APP_API_URL}/admin-fetch-user-attendance`
         );
         console.log("Fetched Userattendance records:", response.data);
 

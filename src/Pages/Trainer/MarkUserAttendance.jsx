@@ -19,9 +19,7 @@ import moment from "moment";
 import toast, { Toaster } from "react-hot-toast";
 
 const MarkUserAttendance = () => {
-  // const { userName, trainerName } = useContext(UserContext);
-  // const users = userName || [];
-  // console.log(users);
+  
 
   const [activeTab, setActiveTab] = useState("mark-attendance");
   const [searchTerm, setSearchTerm] = useState("");
@@ -53,7 +51,7 @@ const MarkUserAttendance = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:3000/get-all-users?trainerId=${trainerId}`
+        `${process.env.REACT_APP_API_URL}/get-all-users?trainerId=${trainerId}`
       );
 
       console.log("response after:", response.data.data);
@@ -83,7 +81,7 @@ const MarkUserAttendance = () => {
       console.log("Inside fetchattendance records try block");
       
       setLoading(true);
-      const response = await axios.get(`http://localhost:3000/getuserattendance/${trainerId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/getuserattendance/${trainerId}`);
 
       console.log("response is 88:",response.data);
       
@@ -104,7 +102,7 @@ const MarkUserAttendance = () => {
       console.log("Fetching today's attendance...");
 
       const response = await axios.get(
-        `http://localhost:3000/getuser-attendance/today/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/getuser-attendance/today/${trainerId}`
       );
 
       if (response.data && response.data.data) {
@@ -145,9 +143,7 @@ const MarkUserAttendance = () => {
       console.log(attendanceForm.userId);
       console.log(attendanceForm.status);
 
-      // const todayDate = new Date().toISOString().split('T')[0];
-      // console.log(todayDate);
-
+     
       const today = new Date().toISOString().split("T")[0];
 
       // Check if attendance already exists before submitting
@@ -157,7 +153,6 @@ const MarkUserAttendance = () => {
       );
 
       if (isAlreadyMarked) {
-        // setError("Attendance for this user is already marked today.");
         toast.error("Attendance for this user is already marked today.");
         setLoading(false);
         return;
@@ -169,7 +164,7 @@ const MarkUserAttendance = () => {
         console.log("before responsePut");
 
         const responsePut = await axios.put(
-          `http://localhost:3000/update-userattendance/${editingId}`,
+          `${process.env.REACT_APP_API_URL}/update-userattendance/${editingId}`,
           {
             userId: attendanceForm.userId,
             trainerId: trainerId,
@@ -178,7 +173,6 @@ const MarkUserAttendance = () => {
         );
 
         console.log(responsePut);
-        // setGetUserAttendanceToday(getUserAttendanceToday)
 
         setGetUserAttendanceToday((prevData) =>
           prevData.map((item) =>
@@ -192,7 +186,7 @@ const MarkUserAttendance = () => {
         console.log("before responsePost");
 
         const response = await axios.post(
-          "http://localhost:3000/mark-userattendance",
+          `${process.env.REACT_APP_API_URL}/mark-userattendance`,
           {
             userId: attendanceForm.userId,
             trainerId: trainerId,
@@ -218,25 +212,18 @@ const MarkUserAttendance = () => {
       console.error("Error saving attendance:", error.response);
       toast.error("Failed to save attendance");
 
-      // Display backend error message
-      //   if (error.response?.status === 400 && error.response?.data?.message === "Attendance already marked for today") {
-      //     setError("Attendance for this user is already marked today.");
-      // } else {
-      //     setError(error.response?.data?.message || 'Failed to save attendance');
-      // }
     } finally {
       setLoading(false);
     }
   };
 
-  // Auto-hide error message after 3 seconds
   useEffect(() => {
     if (error) {
       const timer = setTimeout(() => {
         setError(null);
-      }, 3000); // Hide after 3 seconds
+      }, 3000); 
 
-      return () => clearTimeout(timer); // Cleanup timer on re-render
+      return () => clearTimeout(timer); 
     }
   }, [error]);
 
@@ -267,7 +254,7 @@ const MarkUserAttendance = () => {
     try {
       console.log(id);
       const response = await axios.delete(
-        `http://localhost:3000/delete-userattendance/${id}`
+        `${process.env.REACT_APP_API_URL}/delete-userattendance/${id}`
       );
 
       console.log(response);
@@ -280,7 +267,6 @@ const MarkUserAttendance = () => {
     } catch (error) {
       console.error("Error deleting attendance record:", error);
       toast.error("Failed to delete attendance record");
-      // setError('Failed to delete attendance record');
     }
   };
 

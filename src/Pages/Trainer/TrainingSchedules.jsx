@@ -25,7 +25,7 @@ const TrainingSchedules = () => {
     try {
       console.log("Inside fetchAssignedUsersOfTrainer function");
       const response = await axios.get(
-        `http://localhost:3000/trainer-fetchAssign-users/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/trainer-fetchAssign-users/${trainerId}`
       );
       console.log("response of fetchAssignedUsersOfTrainer:", response.data);
 
@@ -44,7 +44,7 @@ const TrainingSchedules = () => {
 
   const fetchSchedules = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/add-schedules");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/add-schedules`);
       setSchedules(response.data);
     } catch (err) {
       console.error("Error fetching schedules:", err);
@@ -62,7 +62,7 @@ const TrainingSchedules = () => {
       try {
         console.log("Inside of getData function");
 
-        const response = await axios.get("http://localhost:3000/add-schedules");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/add-schedules`);
         console.log(response.data);
         setSchedules(response.data);
       } catch (err) {
@@ -72,10 +72,7 @@ const TrainingSchedules = () => {
     getData();
   }, []);
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData({ ...formData, [name]: value });
-  // };
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -91,120 +88,7 @@ const TrainingSchedules = () => {
     }
   };
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   console.log("name in 69:",name);
-  //   console.log("value in 70:",value);
-  //   console.log("userOfTrainer in 71:",userOfTrainer);
-
-  //   if (name === "username") {
-  //     // Find the selected user by ID
-  //     const selectedUser = userOfTrainer.find(user => user.userId === value);
-  //     console.log("selected user is:",selectedUser);
-
-  //     setFormData({
-  //       ...formData,
-  //       username: selectedUser.username,
-  //       userId: selectedUser.userId
-  //     });
-  //   } else {
-  //     setFormData({ ...formData, [name]: value });
-  //   }
-  // };
-
-  // Update handleFormSubmit function
-  // const handleFormSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const payload = {
-  //       userId: formData.userId,
-  //       sessionName: formData.sessionName,
-  //       date: moment(formData.date).toISOString(), // Convert to ISO format
-  //       time: formData.time,
-  //       trainerId: trainerId
-  //     };
-
-  //     if (editingSchedule) {
-  //       const response = await axios.put(
-  //         `http://localhost:3000/update-schedules/${editingSchedule._id}`,
-  //         payload
-  //       );
-
-  //       // Update the state with the returned schedule
-  //       setSchedules(prevSchedules =>
-  //         prevSchedules.map(schedule =>
-  //           schedule._id === editingSchedule._id ? {
-  //             ...response.data,
-  //             userId: { // Maintain user object structure
-  //               _id: response.data.userId,
-  //               username: formData.username
-  //             }
-  //           } : schedule
-  //         )
-  //       );
-  //       setEditingSchedule(null);
-  //       } else {
-  //         console.log("formData is:",formData);
-  //         {console.log("userOftrainer is:",userOfTrainer)
-  //         }
-
-  //         // Add new schedule
-  //         const response = await axios.post('http://localhost:3000/add-schedules', {
-  //           userId:formData.userId,
-  //           trainerId: trainerId,
-  //           username: formData.username,
-  //           sessionName: formData.sessionName,
-  //           date: formData.date,
-  //           time: formData.time
-  //         });
-
-  //         // Transform the response data to match the structure of fetched schedules
-  //         const newSchedule = {
-  //           ...response.data,
-  //           userId: {
-  //               _id: formData.userId,
-  //               username: formData.username
-  //           }
-  //       };
-
-  //         setSchedules(prevSchedules => [...prevSchedules, newSchedule]);
-  //       }
-
-  //       // Reset form
-  //       setFormData({ username:'', userId: '', sessionName: '', date: '', time: '' });
-  //     }
-  //     catch (err) {
-  //       console.log("Error handling schedule:", err);
-  //     }
-  //   };
-
-  //   const handleEditSchedule = (schedule) => {
-  //     // Set form data to the selected schedule's data
-  //     setFormData({
-  //       userId: schedule.userId._id,
-  //       username: schedule.userId.username,
-  //       sessionName: schedule.sessionName,
-  //       date: moment(schedule.date).format('YYYY-MM-DD'),
-  //       time: schedule.time
-  //     });
-
-  //     // Set the entire schedule object for update reference
-  //     setEditingSchedule(schedule);
-  //   };
-
-  //   const handleDeleteSchedule = async (scheduleId) => {
-  //     try {
-  //       console.log("before deleting the response");
-  //       const response = await axios.delete(`http://localhost:3000/delete-schedules/${scheduleId}`);
-  //       console.log(response);
-
-  //       setSchedules(prevSchedules =>
-  //         prevSchedules.filter(schedule => schedule._id !== scheduleId)
-  //       );
-  //     } catch (err) {
-  //       console.log("Error deleting schedule:", err);
-  //     }
-  //   };
+  
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -217,19 +101,17 @@ const TrainingSchedules = () => {
         trainerId: trainerId,
       };
 
-      // console.log("payload.date is 239:",formData.date);
-      // console.log("payload.date is 239:",formData.date);
+      
       console.log("payload.date is 239:", formData.time);
-      // console.log("payload.date is 240:",payload.time);
 
       if (editingSchedule) {
         await axios.put(
-          `http://localhost:3000/update-schedules/${editingSchedule._id}`,
+          `${process.env.REACT_APP_API_URL}/update-schedules/${editingSchedule._id}`,
           payload
         );
         toast.success("Schedule updated successfully!");
       } else {
-        await axios.post("http://localhost:3000/add-schedules", {
+        await axios.post(`${process.env.REACT_APP_API_URL}/add-schedules`, {
           ...payload,
           username: formData.username,
         });
@@ -265,7 +147,7 @@ const TrainingSchedules = () => {
   const handleDeleteSchedule = async (scheduleId) => {
     try {
       await axios.delete(
-        `http://localhost:3000/delete-schedules/${scheduleId}`
+        `${process.env.REACT_APP_API_URL}/delete-schedules/${scheduleId}`
       );
       toast.success("Schedule deleted successfully!");
 

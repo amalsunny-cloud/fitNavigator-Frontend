@@ -28,7 +28,7 @@ const ManageAttendance = () => {
     const fetchAttendanceRecords = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:3000/attendance`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/attendance`);
         console.log("Fetched attendance records:", response.data);
 
         setAttendanceRecords(response.data);
@@ -48,7 +48,7 @@ const ManageAttendance = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:3000/all-day-trainer-attendance`
+        `${process.env.REACT_APP_API_URL}/all-day-trainer-attendance`
       );
       console.log("Fetched all trainers attendance records:", response.data);
 
@@ -79,14 +79,14 @@ const ManageAttendance = () => {
       if (existingRecordIndex !== -1) {
         // Update existing record
         await axios.put(
-          `http://localhost:3000/attendance/${attendanceRecords[existingRecordIndex]._id}`,
+          `${process.env.REACT_APP_API_URL}/attendance/${attendanceRecords[existingRecordIndex]._id}`,
           { status }
         );
 
         toast.success("Attendance updated successfully!");
       } else {
         // Add new record
-        await axios.post("http://localhost:3000/attendance", {
+        await axios.post(`${process.env.REACT_APP_API_URL}/attendance`, {
           trainerId,
           date: selectedDate,
           status,
@@ -98,7 +98,7 @@ const ManageAttendance = () => {
 
       // Explicitly fetch updated attendance data
       const response = await axios.get(
-        `http://localhost:3000/attendance?date=${selectedDate}`
+        `${process.env.REACT_APP_API_URL}/attendance?date=${selectedDate}`
       ); // Adjust endpoint as necessary
       setAttendanceRecords(response.data); // Update state with fresh data
 
@@ -117,7 +117,7 @@ const ManageAttendance = () => {
       console.log(editStatus);
 
       const response = await axios.put(
-        `http://localhost:3000/attendance/${editingRecord}`,
+        `${process.env.REACT_APP_API_URL}/attendance/${editingRecord}`,
         {
           status: editStatus,
         }

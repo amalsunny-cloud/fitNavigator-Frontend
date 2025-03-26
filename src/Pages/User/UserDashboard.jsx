@@ -85,7 +85,7 @@ const UserDashboard = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `http://localhost:3000/progress-percentage-user/${userId}`
+          `${process.env.REACT_APP_API_URL}/progress-percentage-user/${userId}`
         );
         console.log("User Progress:", response.data);
 
@@ -135,7 +135,7 @@ const UserDashboard = () => {
       console.log("Inside the retrieveAdminPaymentReminder function");
       console.log("Inside userId:", userId);
       const response = await axios.get(
-        `http://localhost:3000/user-retrieveAdminPaymentReminder/${userId}`
+        `${process.env.REACT_APP_API_URL}/user-retrieveAdminPaymentReminder/${userId}`
       );
 
       console.log("response in retrieveAdminPaymentReminder:", response.data);
@@ -153,7 +153,7 @@ const UserDashboard = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:3000/fetch-userdata/${userId}`
+        `${process.env.REACT_APP_API_URL}/fetch-userdata/${userId}`
       );
       console.log("response after fetchUserData", response.data);
       setUser(response.data);
@@ -173,7 +173,7 @@ const UserDashboard = () => {
     try {
       console.log("Inside the getTrainerSeenMessageNotification");
       const response = await axios.get(
-        `http://localhost:3000/getTrainerSeenMessageNotification/${userId}`
+        `${process.env.REACT_APP_API_URL}/getTrainerSeenMessageNotification/${userId}`
       );
 
       console.log("response after ::", response.data);
@@ -338,7 +338,7 @@ const UserDashboard = () => {
     try {
       console.log("Inside the fetchSchedulesOfUserDashboard function");
       const response = await axios.get(
-        `http://localhost:3000/fetchScheduleOfUserDashboard/${userId}`
+        `${process.env.REACT_APP_API_URL}/fetchScheduleOfUserDashboard/${userId}`
       );
 
       console.log("response.data is:", response.data);
@@ -372,7 +372,7 @@ const UserDashboard = () => {
     try {
       console.log("Inside the frontend fetchPlanForDashboard");
       const fetchedPlan = await axios.get(
-        `http://localhost:3000/fetch-plan-userdashboard/${userId}`
+        `${process.env.REACT_APP_API_URL}/fetch-plan-userdashboard/${userId}`
       );
 
       console.log("fetchedPlan:", fetchedPlan.data);
@@ -409,7 +409,7 @@ const UserDashboard = () => {
     try {
       console.log("Inside the attendanceForUserDashboard function");
       const response = await axios.get(
-        `http://localhost:3000/fetch-attendance-userdashboard/${userId}`
+        `${process.env.REACT_APP_API_URL}/fetch-attendance-userdashboard/${userId}`
       );
 
       // Extract attendance count
@@ -433,7 +433,7 @@ const UserDashboard = () => {
     try {
       console.log("Inside the fetchAttendanceData dashboard function");
       const response = await axios.get(
-        "http://localhost:3000/getuser-attendances",
+        `${process.env.REACT_APP_API_URL}/getuser-attendances`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -655,7 +655,7 @@ const UserDashboard = () => {
     try {
       const token = sessionStorage.getItem("userToken");
       const response = await axios.get(
-        "http://localhost:3000/getuserprogress",
+        `${process.env.REACT_APP_API_URL}/getuserprogress`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

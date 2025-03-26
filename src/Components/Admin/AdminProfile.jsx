@@ -28,7 +28,7 @@ const AdminProfile = ({ showModal, handleClose }) => {
         console.log("before the api call");
 
         const response = await axios.get(
-          `http://localhost:3000/admin/${adminId}/profile`
+          `${process.env.REACT_APP_API_URL}/admin/${adminId}/profile`
         );
 
         console.log(response.data);
@@ -75,7 +75,7 @@ const AdminProfile = ({ showModal, handleClose }) => {
 
       // Send FormData to the server
       const response = await axios.put(
-        `http://localhost:3000/admin/${adminId}/profile-image`,
+        `${process.env.REACT_APP_API_URL}/admin/${adminId}/profile-image`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -134,7 +134,7 @@ const AdminProfile = ({ showModal, handleClose }) => {
                   />
                 ) : adminProfile.profileImage ? (
                   <img
-                    src={`http://localhost:3000${adminProfile.profileImage}`}
+                    src={`${process.env.REACT_APP_API_URL}/${adminProfile.profileImage}`}
                     alt="Profile"
                     className="profile-image-admin"
                   />

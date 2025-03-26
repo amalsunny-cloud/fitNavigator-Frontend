@@ -16,31 +16,12 @@ const CheckMembershipModal = ({
 
   
 
-  // const getLatestStartDate = () => {
-  //   if (scheduledMemberships && scheduledMemberships.length > 0) {
-  //     // Get the most recently added scheduled membership
-  //     const latestScheduledMembership = scheduledMemberships[scheduledMemberships.length - 1];
-  //     return moment(latestScheduledMembership.startDate).format("DD-MM-YYYY");
-  //   }
-  //   return currentInvoice?.expiryDate ? moment(currentInvoice.expiryDate).format("DD-MM-YYYY") : "N/A";
-  // };
-
-
-
   const getLatestStartDate = () => {
 
     console.log("inside getLatestStartDate in modal");
     console.log("retrieveFormattedStartedDate in without:", retrieveFormattedStartedDate);
 
     if (retrieveFormattedStartedDate && retrieveFormattedStartedDate.length > 0) {
-      // const sortedMemberships = [...retrieveFormattedStartedDate].sort(
-      //   (a, b) => new Date(a.startDate) - new Date(b.startDate)
-      // );
-
-      // console.log("sorted membership:",sortedMemberships);
-      
-      // return moment(sortedMemberships[sortedMemberships.length - 1].startDate).format("DD-MM-YYYY");
-
       return retrieveFormattedStartedDate
     }
     return currentInvoice?.expiryDate ? moment(currentInvoice.expiryDate).format("DD-MM-YYYY") : "N/A";
@@ -50,7 +31,6 @@ const CheckMembershipModal = ({
 
   const getLatestExpiryDate = () => {
     if (scheduledMemberships && scheduledMemberships.length > 0) {
-      // Get the most recently added scheduled membership
       const latestScheduledMembership = scheduledMemberships[scheduledMemberships.length - 1];
       return moment(latestScheduledMembership.endDate).format("DD-MM-YYYY");
     }
@@ -123,7 +103,6 @@ const CheckMembershipModal = ({
             <div className="invoice-content">
               <div className="invoice-header-section">
                 <h2>Fit-Navigator</h2>
-                {/* <p className="invoice-number">Invoice: {currentInvoice.invoiceNumber}</p> */}
               </div>
               <div className="invoice-details-section">
                 <div className="invoice-row">

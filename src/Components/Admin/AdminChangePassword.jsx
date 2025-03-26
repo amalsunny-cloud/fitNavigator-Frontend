@@ -24,7 +24,7 @@ const AdminChangePassword = ({ show, onClose }) => {
       }
 
       const response = await axios.put(
-        "http://localhost:3000/admin-change-password",
+        `${process.env.REACT_APP_API_URL}/admin-change-password`,
         {
           newPassword: formData.newPassword,
           confirmPassword: formData.confirmPassword,

@@ -15,8 +15,8 @@ const TrainerProfile = ({ showModal, handleClose }) => {
     profileImage: null, // This will hold the image URL
   });
 
-  const [profileImage, setProfileImage] = useState(null); // Raw file for upload
-  const [previewImage, setPreviewImage] = useState(null); // Base64 string for preview
+  const [profileImage, setProfileImage] = useState(null); 
+  const [previewImage, setPreviewImage] = useState(null); 
   const navigate = useNavigate();
   const trainerId = sessionStorage.getItem("trainerId");
 
@@ -27,7 +27,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
         console.log("before the api call");
 
         const response = await axios.get(
-          `http://localhost:3000/trainer/${trainerId}/profile`
+          `${process.env.REACT_APP_API_URL}/trainer/${trainerId}/profile`
         );
 
         console.log(response.data);
@@ -60,11 +60,11 @@ const TrainerProfile = ({ showModal, handleClose }) => {
     }
   };
 
-  // Save image to the server
+
+
   const handleSaveImage = async () => {
     try {
       if (!profileImage) {
-        // alert("Please upload an image first");
         toast.error("Please upload an image first");
         return;
       }
@@ -75,14 +75,14 @@ const TrainerProfile = ({ showModal, handleClose }) => {
 
       // Send FormData to the server
       const response = await axios.put(
-        `http://localhost:3000/trainer/${trainerId}/profile-image`,
+        `${process.env.REACT_APP_API_URL}/trainer/${trainerId}/profile-image`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
 
-      // alert(response.data.message);
+
       toast.success(response.data.message);
       setTrainerProfile((prev) => ({
         ...prev,
@@ -94,10 +94,10 @@ const TrainerProfile = ({ showModal, handleClose }) => {
         "Error updating profile image:",
         error.response?.data || error.message
       );
-      // alert("Failed to update profile image");
       toast.error("Failed to update profile image");
     }
   };
+
 
   const handleLogout = () => {
     sessionStorage.clear();
@@ -133,7 +133,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
                   />
                 ) : trainerProfile.profileImage ? (
                   <img
-                    src={`http://localhost:3000${trainerProfile.profileImage}`}
+                    src={`${process.env.REACT_APP_API_URL}/${trainerProfile.profileImage}`}
                     alt="Profile"
                     className="profile-image-trainer"
                   />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Plus, Trash2, Calendar } from "lucide-react";
-// import "../../Styles/Messages.css";
 import "../../Styles/TrainerMessages.css";
 import TrainerHeader from "../../Components/Trainer/TrainerHeader";
 import { UserContext } from "../../Context/UserContext";
@@ -22,8 +21,6 @@ const Messages = () => {
   const { messagesUpdated } = useContext(MessageContext);
   console.log("messagesUpdated:", messagesUpdated);
 
-  // const users = userName.map(user => user.username);
-
   const [activeTab, setActiveTab] = useState("sent");
   const [messagesSent, setMessagesSent] = useState([]);
   const [messagesReceived, setMessagesReceived] = useState([]);
@@ -35,9 +32,7 @@ const Messages = () => {
   const [userToTrainerMessagesMessages, setUserToTrainerMessagesMessages] =
     useState([]);
 
-  // const [trainerViewMessages, setTrainerViewMessages] = useState(
-  //   userToTrainerMessagesMessages
-  // );
+
 
   const trainerId = sessionStorage.getItem("trainerId");
   console.log("trainerId is:", trainerId);
@@ -46,7 +41,7 @@ const Messages = () => {
     try {
       console.log("inside the fetchAssignedUsers function");
       const fetchedResponse = await axios.get(
-        `http://localhost:3000/trainer-fetchAssign-users/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/trainer-fetchAssign-users/${trainerId}`
       );
 
       console.log("fetchedUsers:", fetchedResponse.data);
@@ -77,14 +72,13 @@ const Messages = () => {
   const fetchReceivedMessages = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3000/messages");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/messages`);
       const trainerMessages = response.data.data.messages.filter(
         (msg) => msg.sentTo === "Trainers" || msg.sentTo === "All Members"
       );
       setMessagesReceived(trainerMessages);
     } catch (error) {
       console.error("Error fetching messages:", error);
-      // setError("Failed to load messages");
       toast.error("Failed to load messages")
     } finally {
       setLoading(false);
@@ -96,16 +90,9 @@ const Messages = () => {
   const fetchUserToTrainerMessages = async () => {
     try {
       console.log("inside the fetchUserToTrainerMessages");
-      // const token = sessionStorage.getItem('trainerToken')
-      // console.log("trainerToken is:",token);
-
-      // const response = await axios.get('http://localhost:3000/fetchUserToTrainerMessages',{
-      //   headers: {
-      //     'Authorization': `Bearer ${token}`
-      //   }
-      // })
+      
       const response = await axios.get(
-        `http://localhost:3000/fetchUserToTrainerMessages/${trainerId}`
+        `${process.env.REACT_APP_API_URL}/fetchUserToTrainerMessages/${trainerId}`
       );
 
       console.log("response after fetchUserToTrainerMessages:", response.data);
@@ -125,7 +112,7 @@ const Messages = () => {
       
       setLoading(true);
       const response = await axios.get(
-          `http://localhost:3000/trainerToUsermessages/trainer/${trainerId}`
+          `${process.env.REACT_APP_API_URL}/trainerToUsermessages/trainer/${trainerId}`
       );
 
       console.log("response.data in 131:",response.data);
@@ -137,7 +124,6 @@ const Messages = () => {
       setMessagesSent(messages);
     } catch (error) {
       console.error("Error fetching sent messages:", error);
-      // setError("Failed to load sent messages");
       toast.error("Failed to load sent messages");
 
     } finally {
@@ -155,7 +141,7 @@ const Messages = () => {
       setLoading(true);
       // Send the message with userId
       const response = await axios.post(
-        "http://localhost:3000/trainerToUsermessages",
+        `${process.env.REACT_APP_API_URL}/trainerToUsermessages`,
         {
           text: newMessage,
           username: selectedUser,
@@ -168,13 +154,11 @@ const Messages = () => {
         await fetchSentMessages(); // Refresh the sent messages list
         setNewMessage("");
         setSelectedUser("");
-        // setError(null); 
         toast.success("Message sent successfully");
 
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      // setError("Failed to send message");
       toast.error("Failed to send message");
 
     } finally {
@@ -189,7 +173,7 @@ const Messages = () => {
       console.log("before the response in handleDeleteMessage");
 
       const response = await axios.delete(
-        `http://localhost:3000/trainerToUsermessages/${id}`
+        `${process.env.REACT_APP_API_URL}/trainerToUsermessages/${id}`
       );
       console.log("After the response in handleDeleteMessage", response);
       toast.success("Message deleted successfully");
@@ -197,7 +181,6 @@ const Messages = () => {
       await fetchSentMessages();
     } catch (error) {
       console.error("Error deleting message:", error);
-      // setError("Failed to delete message");
       toast.error("Failed to delete message");
 
     } finally {
@@ -211,7 +194,7 @@ const Messages = () => {
     try {
       console.log("inside the markAsSeen function");
       const response = await axios.put(
-        `http://localhost:3000/mark-seen/${messageId}`
+        `${process.env.REACT_APP_API_URL}/mark-seen/${messageId}`
       );
 
       console.log("response is 177:", response.data);

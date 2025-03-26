@@ -5,7 +5,6 @@ export const TrainingContext = createContext();
 
 export const TrainingProvider = ({ children }) => {
   const [schedules, setSchedules] = useState([
-    // Mock data
     {
       sessionName: "Morning Cardio",
       date: "2025-01-10",

@@ -55,7 +55,7 @@ const UserAuth = () => {
       toast.error("Please fill all fields");
     } else {
       try {
-        const response = await axios.post('http://localhost:3000/register', { 
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/register`, { 
           username, email, password, purpose 
         });
         toast.success("Registered Successfully");
@@ -77,7 +77,7 @@ const UserAuth = () => {
 
     }
       try {
-        const response = await axios.post('http://localhost:3000/login', { 
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, { 
           email, password 
         });
         const { token, user } = response.data;

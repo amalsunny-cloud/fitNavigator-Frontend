@@ -105,7 +105,7 @@ const ViewAttendance = () => {
     try {
       console.log("Inside the fetchAttendanceData function");
       
-      const response = await axios.get('http://localhost:3000/getuser-attendances', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/getuser-attendances`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -247,7 +247,7 @@ const ViewAttendance = () => {
   const attendanceForVieweAttendance = async()=>{
     try{
       console.log("Inside the attendanceForUserDashboard function");
-      const response  = await axios.get(`http://localhost:3000/fetch-attendance-userdashboard/${userId}`)
+      const response  = await axios.get(`${process.env.REACT_APP_API_URL}/fetch-attendance-userdashboard/${userId}`)
 
      // Extract attendance count
     const attendanceCount = response.data.attendanceCount;

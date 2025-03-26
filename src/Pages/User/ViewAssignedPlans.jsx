@@ -19,7 +19,7 @@ const ViewAssignedPlans = () => {
     try {
       console.log("Fetching assigned workouts...");
       const response = await axios.get(
-        `http://localhost:3000/getTrainerAssignedWorkoutUser/${userId}`
+        `${process.env.REACT_APP_API_URL}/getTrainerAssignedWorkoutUser/${userId}`
       );
       console.log("API Response of getAssignedWorkouts:", response.data);
 
@@ -42,7 +42,7 @@ const ViewAssignedPlans = () => {
     try {
       console.log("Fetching assigned diets...");
       const response = await axios.get(
-        `http://localhost:3000/getTrainerAssignedDietUser/${userId}`
+        `${process.env.REACT_APP_API_URL}/getTrainerAssignedDietUser/${userId}`
       );
       console.log("API Response getAssignedDiets:", response.data);
 

@@ -41,9 +41,7 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
     const labels = userProgressData.map((entry) =>
       entry.date
     );
-    // const labels = userProgressData.map((entry) =>
-    //   new Date(entry.date).toLocaleDateString()
-    // );
+    
 
     console.log("labels is:",labels);
     
@@ -118,18 +116,7 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
 
       case "Endurance":
         datasets = [
-          // {
-          //   label: "Exercise",
-          //   data: userProgressData.map(
-          //     (entry) => entry.progressData.exerciseType
-          //   ),
-          //   borderColor: "rgba(75,192,192,1)",
-          //   backgroundColor: "rgba(75,192,192,0.2)",
-          //   fill: true,
-          //   color:"white",
-          // },
-
-          
+  
           {
             label: "Repetitions",
             data: userProgressData.map((entry) => entry.progressData.maxReps),
@@ -151,13 +138,7 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
     });
   }, [progressData, user]);
 
-  // const options = {
-  //   responsive: true,
-  //   scales: {
-  //     x: { title: { display: true, text: "Date" } },
-  //     y: { title: { display: true, text: "Value" }, beginAtZero: true },
-  //   },
-  // };
+  
 
 
   const options = {
@@ -165,27 +146,27 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
     plugins: {
       legend: {
         labels: {
-          color: "yellow", // Set legend text color
+          color: "yellow", 
           font: {
-            size: 15, // Optional: Adjust font size
+            size: 15, 
           },
           padding: 20, 
         },
       },
       tooltip: {
         backgroundColor: "rgba(0, 0, 0, 0.8)",
-        titleColor: "white", // Tooltip title color
-        bodyColor: "yellow", // Tooltip body color
+        titleColor: "white", 
+        bodyColor: "yellow", 
         
         titleFont: {
-          size: 16, // Title font size
+          size: 16, 
           weight: "bold",
         },
         bodyFont: {
-          size: 14, // Body text font size
+          size: 14, 
         },
-        borderWidth: 1, // Border width
-      borderColor: "#ffcc00", // Border color
+        borderWidth: 1, 
+      borderColor: "#ffcc00", 
       cornerRadius: 8, 
         padding: 10,
       },
@@ -195,13 +176,13 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
         title: {
           display: true,
           text: "Date",
-          color: "yellow", // X-axis title color
+          color: "yellow", 
           font: {
-            size: 16, // Increase font size for X-axis title
+            size: 16,
           },
         },
         ticks: {
-          color: "white", // X-axis label color
+          color: "white", 
           font: {
             size: 14,
           },
@@ -211,13 +192,13 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
         title: {
           display: true,
           text: "Value",
-          color: "yellow", // Y-axis title color
+          color: "yellow", 
           font: {
-            size: 16, // Increase font size for X-axis labels
+            size: 16, 
           },
         },
         ticks: {
-          color: "white", // Y-axis label color
+          color: "white", 
           font: {
             size: 16,
           },
@@ -257,7 +238,6 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
               onClick={() => setShowChart(!showChart)}
               style={{
                 padding: "10px",
-                // backgroundColor: "#007bff",
                 backgroundColor: "#4CAF50",
                 color: "white",
                 border: "none",
@@ -272,7 +252,6 @@ const PerformanceModal = ({ user, progressData, onClose }) => {
               onClick={onClose}
               style={{
                 padding: "10px",
-                // backgroundColor: "#dc3545",
                 backgroundColor: "#d01609",
                 color: "white",
                 border: "none",

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 import '../../Styles/AdminAuth.css'; 
 import axios from 'axios'
 
@@ -51,16 +50,12 @@ const AdminAuth = () => {
             toast.error("Please fill all fields.");
             return;
         } 
-        // else {
-        //     toast.success("Admin Registered Successfully");
-        //     setFormData({ username: '', email: '', password: '' });
-        //     setIsRegister(false);
-        // }
+        
 
 
         try {
             console.log("before response");
-            const response = await axios.post('http://localhost:3000/admin-register', {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin-register`, {
                 username,
                 email,
                 password,
@@ -88,22 +83,15 @@ const AdminAuth = () => {
         if (!email || !password) {
             toast.error("Please fill all fields.");
         } 
-        // else {
-        //     toast.success("Admin Login Successful");
-        //     navigate('/admindashboard');
-        // }
+        
         try {
             console.log("before response");
-            
-            const response = await axios.post('http://localhost:3000/admin-login', {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/admin-login'`, {
                 email,
                 password,
             });
 
-            // const { token, existingAdmin } = response.data;
-            // toast.success("Admin Login Successful");
-            // console.log("Login Response:", response.data);
-
+            
             if (response.data && response.data.token) {
                 const { token, admin } = response.data;
                 
@@ -129,70 +117,7 @@ const AdminAuth = () => {
     };
 
     return (
-        // <div className="auth-container">
-        //     <div className="auth-card">
-        //         <div className="auth-header">
-        //             <h2>{isRegister ? 'Admin Registration' : 'Admin Login'}</h2>
-                    
-        //         </div>
-
-        //         <form onSubmit={isRegister ? handleRegisterSubmit : handleLoginSubmit} className="auth-form">
-        //             {isRegister && (
-        //                 <div className="form-group">
-        //                     <label>Username</label>
-        //                     <input
-        //                         type="text"
-        //                         name="username"
-        //                         value={formData.username}
-        //                         onChange={handleChange}
-        //                         placeholder="Enter your username"
-        //                     />
-        //                 </div>
-        //             )}
-
-        //             <div className="form-group">
-        //                 <label>Email</label>
-        //                 <input
-        //                     type="email"
-        //                     name="email"
-        //                     value={isRegister ? formData.email : credentials.email}
-        //                     onChange={handleChange}
-        //                     placeholder="Enter your email"
-        //                 />
-        //             </div>
-
-        //             <div className="form-group">
-        //                 <label>Password</label>
-        //                 <input
-        //                     type="password"
-        //                     name="password"
-        //                     value={isRegister ? formData.password : credentials.password}
-        //                     onChange={handleChange}
-        //                     placeholder="Enter your password"
-        //                 />
-        //             </div>
-
-        //             <button type="submit" className="submit-btn">
-        //                 {isRegister ? 'Register' : 'Sign In'}
-        //             </button>
-        //         </form>
-
-        //         <div className="auth-footer">
-        //             <p>
-        //                 {isRegister ? 'Already have an admin account?' : "Don't have an admin account?"}{' '}
-        //                 <span
-        //                     onClick={() => setIsRegister(!isRegister)}
-        //                     className="toggle-auth"
-        //                 >
-        //                     {isRegister ? 'Sign In' : 'Register'}
-        //                 </span>
-        //             </p>
-        //         </div>
-        //     </div>
-        //     <ToastContainer />
-        // </div>
-
-
+        
         <div className="auth-container">
             <div className="auth-illustration">
                 <img src={adminAuthImage} alt="Admin Authentication" />
