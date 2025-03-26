@@ -19,6 +19,10 @@ import moment from "moment";
 import toast, { Toaster } from "react-hot-toast";
 
 const MarkUserAttendance = () => {
+  // const userName = useContext(UserContext)
+    // const { userName } = useContext(UserContext);
+    // console.log("userName is :",userName);
+    
   
 
   const [activeTab, setActiveTab] = useState("mark-attendance");
@@ -45,6 +49,8 @@ const MarkUserAttendance = () => {
   const fetchAssignedUsersofTrainer = async () => {
     try {
       console.log("inside the fetchAssignedUsersofTrainer function");
+      console.log("trainerId:",trainerId);
+      
       if (!trainerId) {
         console.error("Trainer ID is missing!");
         return;
@@ -55,11 +61,19 @@ const MarkUserAttendance = () => {
       );
 
       console.log("response after:", response.data.data);
+      
+
+
+      
+
+
 
       // Extracting user objects from assignedUsers response
       const users = response.data.data.map((item) => item.user);
-
+      console.log("users in 67:",users);
+      
       setFetchedAssignedTrainerUser(users);
+
     } catch (error) {
       console.error("Error at fetchAssignedUsersofTrainer function", error);
       setFetchedAssignedTrainerUser([]);
@@ -391,7 +405,7 @@ const MarkUserAttendance = () => {
                   setEditingId(null);
                   setAttendanceForm({
                     userId: userName._id,
-                    // date,
+                    
                     status: "Present",
                   });
                 }}
