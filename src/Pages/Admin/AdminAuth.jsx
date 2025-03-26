@@ -86,7 +86,7 @@ const AdminAuth = () => {
         
         try {
             console.log("before response");
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/admin-login'`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/admin-login`, {
                 email,
                 password,
             });
