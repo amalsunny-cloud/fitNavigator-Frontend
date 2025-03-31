@@ -47,8 +47,8 @@ function Home() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#one">Features</Nav.Link>
-              <NavDropdown title="Logins" id="basic-nav-dropdown">
+              <Nav.Link href="#one" className='fw-bold'>Features</Nav.Link>
+              <NavDropdown title="Logins" className='fw-bold' id="basic-nav-dropdown">
                 <NavDropdown.Item href="/userauth?login=true">User Login</NavDropdown.Item>
                 <NavDropdown.Item href="/trainer/login">Trainer Login</NavDropdown.Item>
                 <NavDropdown.Item href="/userauth">User Register</NavDropdown.Item>
@@ -64,10 +64,10 @@ function Home() {
       <div className="container-fluid rounded bg-secondary" style={{height:"90vh",width:"100%",paddingLeft:"90px"}}>
         <Row className='align-items-center p-4'>
             <Col sm={12} md={6}>
-                <h1 style={{fontSize:"80px"}} className='fw-bolder text-dark mt-5 pt-2'>Fit-Navigator</h1>
+                <h1 style={{fontSize:"80px"}} className='fw-bolder text-dark mt-2 pt-0 pb-4'>Fit-Navigator</h1>
                 <p>"Transform Your Fitness Journey with Ease!"</p>
 
-                    <p className='text-dark pt-5'>
+                    <p className='text-dark 4'>
                     Welcome to FitNavigator, your ultimate gym management solution! Our platform is designed to streamline and enhance your gym's operations, providing you with powerful tools to manage memberships, track workouts, schedule classes, and monitor progress. With an intuitive interface and robust features, FitFlow ensures that both gym owners and members have a seamless and rewarding experience. Join us in revolutionizing the way you manage your fitness facility and help your members achieve their goals with ease and efficiency.
                     </p>
 
@@ -97,7 +97,7 @@ function Home() {
                           filter: "brightness(0.95) contrast(1.1)",
                           hover: {
                             transform: "scale(1.02) perspective(1000px)",
-                            boxShadow: "0 32px 64px -12px rgba(0, 0, 0, 0.3), 0 8px 12px -4px rgba(0, 0, 0, 0.15)",
+                            boxShadow: "0 32px 64px -12px rgba(0, 0, 0, 0.3), 0 8px 12px -4px rgba(0, 0, 0, 0.65)",
                             filter: "brightness(1) contrast(1.15)"
                           }
                         }}
