@@ -263,6 +263,8 @@
 
 .toggle-auth:hover {
     color: #357abd;
+
+    text-decoration: none !important;
 }
 
 .toggle-auth:hover:after {

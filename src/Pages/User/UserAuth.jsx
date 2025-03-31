@@ -122,103 +122,7 @@ const UserAuth = () => {
   };
 
   return (
-    // <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4">
-    //   <div className={`bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-md transform transition-all duration-300 ${isAnimating ? 'scale-95 opacity-80' : 'scale-100 opacity-100'}`}>
-    //     <div className="p-8">
-    //       <div className="text-center mb-8">
-    //         <h2 className="text-3xl font-bold text-gray-800 mb-2">
-    //           {isRegister ? 'Create Account' : 'Welcome Back'}
-    //         </h2>
-    //         <p className="text-gray-600">
-    //           {isRegister ? 'Begin your fitness journey today' : 'Continue your path to fitness'}
-    //         </p>
-    //       </div>
-
-    //       <form onSubmit={isRegister ? handleRegisterSubmit : handleLoginSubmit} 
-    //             className="space-y-6">
-    //         {isRegister && (
-    //           <div className="relative">
-    //             <UserIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-    //             <input
-    //               type="text"
-    //               name="username"
-    //               value={formData.username}
-    //               onChange={handleChange}
-    //               placeholder="Username"
-    //               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-    //             />
-    //           </div>
-    //         )}
-
-    //         <div className="relative">
-    //           <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-    //           <input
-    //             type="email"
-    //             name="email"
-    //             value={isRegister ? formData.email : credentials.email}
-    //             onChange={handleChange}
-    //             placeholder="Email"
-    //             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-    //           />
-    //         </div>
-
-    //         <div className="relative">
-    //           <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-    //           <input
-    //             type="password"
-    //             name="password"
-    //             value={isRegister ? formData.password : credentials.password}
-    //             onChange={handleChange}
-    //             placeholder="Password"
-    //             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-    //           />
-    //         </div>
-
-    //         {isRegister && (
-    //           <div className="relative">
-    //             <Target className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-    //             <select
-    //               name="purpose"
-    //               value={formData.purpose}
-    //               onChange={handleChange}
-    //               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none bg-white"
-    //             >
-    //               <option value="">Select Purpose</option>
-    //               <option value="Muscle Building">Muscle Building</option>
-    //               <option value="Weight Loss">Weight Loss</option>
-    //               <option value="Endurance">Endurance</option>
-    //             </select>
-    //           </div>
-    //         )}
-
-    //         <button
-    //           type="submit"
-    //           className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transform hover:scale-[1.02] transition-all duration-200"
-    //         >
-    //           {isRegister ? 'Create Account' : 'Sign In'}
-    //         </button>
-    //       </form>
-
-    //       <div className="mt-6 text-center">
-    //         <p className="text-gray-600">
-    //           {isRegister ? 'Already have an account?' : "Don't have an account?"}{' '}
-    //           <button
-    //             onClick={toggleMode}
-    //             className="text-blue-500 font-semibold hover:text-blue-600 transition-colors duration-200"
-    //           >
-    //             {isRegister ? 'Sign In' : 'Create Account'}
-    //           </button>
-    //         </p>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <ToastContainer position="top-right" autoClose={3000} />
-    // </div>
-
-
-
-
-
+    
     <div className="auth-container">
       <div className="auth-illustration">
         <img src={userAuthImage} alt="Fitness Journey" />
@@ -237,7 +141,7 @@ const UserAuth = () => {
           </div>
           <h2>{isRegister ? 'Create Account' : 'Welcome Back'}</h2>
           <p className="auth-subtitle">
-            {isRegister ? 'Begin your fitness journey today' : 'Continue your path to fitness'}
+            {isRegister ? 'Begin your fitness journey today' : 'Continue your path to fitness journey'}
           </p>
         </div>
 
