@@ -49,25 +49,21 @@ function Footer() {
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Categories</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  Cardio
+                <a href='#!' className='text-reset text-decoration-none'>
+                  Weight loss
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Strength training
+                <a href='#!' className='text-reset text-decoration-none'>
+                  Muscle Building
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  endurance
+                <a href='#!' className='text-reset text-decoration-none'>
+                  Endurance
                 </a>
               </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  stamina
-                </a>
-              </p>
+              
             </MDBCol>
 
             
@@ -85,9 +81,7 @@ function Footer() {
               <p>
                 <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
               </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
+              
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -95,7 +89,7 @@ function Footer() {
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         © 2024 Copyright:
-        <a className='text-reset fw-bold' href=''>
+        <a className='text-reset fw-bold text-decoration-none' href=''>
           fitnavigator.com
         </a>
       </div>

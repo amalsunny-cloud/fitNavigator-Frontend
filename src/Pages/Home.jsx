@@ -71,7 +71,7 @@ function Home() {
                     Welcome to FitNavigator, your ultimate gym management solution! Our platform is designed to streamline and enhance your gym's operations, providing you with powerful tools to manage memberships, track workouts, schedule classes, and monitor progress. With an intuitive interface and robust features, FitFlow ensures that both gym owners and members have a seamless and rewarding experience. Join us in revolutionizing the way you manage your fitness facility and help your members achieve their goals with ease and efficiency.
                     </p>
 
-                    <Link to={'/userauth'} className='btn btn-warning'>Start to Explore</Link>
+                    <Link to={'/userauth'} className='btn btn-warning fw-bold text-light lh-lg'>Start to Explore</Link>
 
             </Col>
             <Col sm={12} md={6} style={{paddingLeft:"40px"}}>
