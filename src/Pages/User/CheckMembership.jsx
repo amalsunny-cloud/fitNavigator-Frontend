@@ -268,7 +268,7 @@ const CheckMembership = () => {
                 ))
               ) : (
                 <div>
-                <p style={{color:"red",fontSize:"24px"}}>No active memberships</p>
+                <p style={{color:"red",fontSize:"24px"}}>No active memberships !</p>
                 </div>
               )}
 

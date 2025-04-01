@@ -121,7 +121,7 @@ const ViewTrainingSchedules = () => {
                 <p
                   style={{ color: "red", marginTop: "50px", fontSize: "24px" }}
                 >
-                  No training schedules available right now!
+                  No training schedules available right now !
                 </p>
               </div>{" "}
             </div>

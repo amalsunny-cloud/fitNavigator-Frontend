@@ -38,28 +38,12 @@ const ViewAttendance = () => {
   const userId = sessionStorage.getItem('userId');
 
 
-  // const downloadPDF = () => {
-  //   const input = document.getElementById("attendance-report"); // The section to be captured
-  
-  //   html2canvas(input, { scale: 2 }).then((canvas) => {
-  //     const imgData = canvas.toDataURL("image/png");
-  //     const pdf = new jsPDF("p", "mm", "a4");
-  //     const imgWidth = 190; // Fit image inside A4 width
-  //     const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      
-  //     pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-  //     pdf.save("Attendance_Report.pdf");
-  //   });
-  // };
-
-
-
 
   const downloadPDF = () => {
     const input = document.getElementById("attendance-report");
   
     html2canvas(input, {
-      scale: 1, // Reduced from 2 for smaller file size
+      scale: 1, 
       logging: false,
       backgroundColor: "#000000" 
     }).then((canvas) => {
@@ -68,18 +52,15 @@ const ViewAttendance = () => {
       const pageWidth = pdf.internal.pageSize.getWidth();
       const pageHeight = pdf.internal.pageSize.getHeight();
       
-      // Calculate dimensions to fit page
-      const imgWidth = 200; // Reduced width for better margins
+      const imgWidth = 200; 
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       
       // Center the image horizontally
       const xPos = (pageWidth - imgWidth) / 2;
       const yPos = 15;
   
-      // Add first page
       pdf.addImage(imgData, "JPEG", xPos, yPos, imgWidth, imgHeight);
   
-      // Add additional pages if needed
       let heightLeft = imgHeight;
       let position = yPos;
   
@@ -270,10 +251,10 @@ const ViewAttendance = () => {
     "Great job! Keep up the consistency! 💪",
     "You're building a strong habit! Stay focused! 🔥",
     "One step closer to your fitness goals! 🏆",
-    "Every workout counts! Keep going! 🚀",
+    " Every workout counts! Keep going! 🚀",
     "Discipline beats motivation! Stay committed! 💯",
     "You showed up today, and that's what matters! 👏",
-    "Success is the sum of small efforts, repeated daily! ✅"
+    " Success is the sum of small efforts, repeated daily! ✅"
   ];
   
 
@@ -298,9 +279,6 @@ const ViewAttendance = () => {
     <>
       <Header />
 
-      {/* {isLoading ? ( */}
-        {/* <div className="loading">Loading...</div> */}
-      {/* ) : ( */}
         <div className="attendance-container fade-in">
           <div className="motivation-message">
             <h3>💡 Motivation for You:</h3>

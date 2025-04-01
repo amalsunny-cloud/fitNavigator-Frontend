@@ -442,10 +442,10 @@ body {
 }
 
 .img-for-attendance-user{
-  width: 100px;
+  width: 80px;
   position: absolute;
-  top: 210px;
-  left: 390px;
+  top: 220px;
+  left: 420px;
 }
 
 .calendar-header button {
