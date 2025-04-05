@@ -21,7 +21,7 @@ const DonutChartSingle = ({ memberProgressPercentage }) => {
           r="45"
           fill="none"
           stroke="#e0e0e0"
-          strokeWidth="10"
+          strokeWidth="9"
         />
         
         {/* Progress circle */}
@@ -31,8 +31,8 @@ const DonutChartSingle = ({ memberProgressPercentage }) => {
           cy="50"
           r="45"
           fill="none"
-          stroke="#4CAF50"
-          strokeWidth="10"
+          stroke="#2CAF50"
+          strokeWidth="8"
           strokeLinecap="round"
           transform="rotate(-90 50 50)"
           style={{
@@ -48,7 +48,7 @@ const DonutChartSingle = ({ memberProgressPercentage }) => {
           y="50"
           dominantBaseline="middle"
           textAnchor="middle"
-          fontSize="20"
+          fontSize="16"
           fill="#ffc93c"
           fontWeight="bold"
         >

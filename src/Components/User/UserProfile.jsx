@@ -139,7 +139,7 @@ const UserProfile = ({ showModal, handleClose }) => {
 
           {/* User Details */}
           <h5>{userProfile.username}</h5>
-          <p>Goal: {userProfile.purpose}</p>
+          <p style={{color:"green",fontWeight:"bold"}}>Goal: {userProfile.purpose}</p>
 
           <Button variant="success" onClick={handleSaveImage}>
             Save Image
