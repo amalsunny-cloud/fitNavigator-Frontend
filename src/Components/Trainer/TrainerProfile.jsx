@@ -163,7 +163,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
 
             {/* User Details */}
             <h5>Trainer : {trainerProfile.username}</h5>
-            <p>Specialist: {trainerProfile.specialization}</p>
+            <p style={{color:"green",fontWeight:"500"}}>Specialist: {trainerProfile.specialization}</p>
 
             <Button variant="success" onClick={handleSaveImage}>
               Save Image
