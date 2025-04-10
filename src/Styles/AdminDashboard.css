@@ -79,7 +79,8 @@
 }
 
 .dashboard-header-admin p{
-  color: #94a3b8;
+  color: #dfedff;
+  /* color: #94a3b8; */
   font-size: 1.5rem;
 }
 
@@ -182,7 +183,6 @@
 
 .admin-profile-button {
   background: linear-gradient(125deg,rgb(1, 152, 1),rgb(255, 198, 27));
-  /* background: linear-gradient(45deg,rgb(4, 120, 4),rgb(181, 149, 53)); */
   border: none;
   color: white;
   font-weight: 600;

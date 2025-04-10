@@ -76,7 +76,8 @@
 }
 
 .dashboard-subtitle {
-  color: #94a3b8;
+  /* color: #94a3b8; */
+  color: #dfedff;
   font-size: 1.5rem;
 }
 
@@ -185,7 +186,6 @@
 
 .metric-description {
   color: rgb(40, 214, 20);  
-  /* color: #94a3b8; */
   margin-top: 1rem;
 }
 
@@ -206,8 +206,6 @@
 }
 
 .trainer-profile-button {
-  /* background: linear-gradient(45deg,rgb(22, 162, 22),rgba(145, 144, 144, 0.281)); */
-
   background: linear-gradient(125deg,rgb(1, 152, 1),rgb(255, 198, 27));
   font-weight: 600;
   border: none;

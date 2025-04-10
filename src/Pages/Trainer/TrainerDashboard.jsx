@@ -13,10 +13,16 @@ import {
 } from "recharts";
 import { Link } from "react-router-dom";
 
-import { Activity, Calendar, Users, MessageSquare, Award, Bell } from "lucide-react";
+import {
+  Activity,
+  Calendar,
+  Users,
+  MessageSquare,
+  Award,
+  Bell,
+} from "lucide-react";
 
 import { Lock, Check, X } from "lucide-react";
-
 
 import "../../Styles/TrainerDashboard.css";
 import TrainerHeader from "../../Components/Trainer/TrainerHeader";
@@ -26,7 +32,6 @@ import ClassAttendanceChart from "../../Components/Trainer/ClassAttendanceChart"
 import MemberProgressChart from "../../Components/Trainer/MemberProgressChart";
 import DonutChartSingle from "../../Components/Trainer/DonutChartSingle";
 import TrainerChangePassword from "../../Components/Trainer/TrainerChangePassword";
-
 
 const TrainerDashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,27 +48,30 @@ const TrainerDashboard = () => {
 
   const [userAttendanceTrainerDashboard, setUserAttendanceTrainerDashboard] =
     useState([]);
-  const [totalUserAttendanceTrainerDashboard, setTotalUserAttendanceTrainerDashboard] =
-    useState(0);
+  const [
+    totalUserAttendanceTrainerDashboard,
+    setTotalUserAttendanceTrainerDashboard,
+  ] = useState(0);
 
-  const [retrievingBmiChart,setRetrievingBmiChart] = useState([]);
-  const [classScheduleCount,setClassScheduleCount] = useState(0);
+  const [retrievingBmiChart, setRetrievingBmiChart] = useState([]);
+  const [classScheduleCount, setClassScheduleCount] = useState(0);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
 
-  const [countNotificationTrainerDashboard, setCountNotificationTrainerDashboard] = useState(0);
-  const [countAdminMessageTrainerDashboard, setCountAdminMessageTrainerDashboard] = useState(0);
+  const [
+    countNotificationTrainerDashboard,
+    setCountNotificationTrainerDashboard,
+  ] = useState(0);
+  const [
+    countAdminMessageTrainerDashboard,
+    setCountAdminMessageTrainerDashboard,
+  ] = useState(0);
   const [totalMessagesCount, setTotalMessagesCount] = useState(0);
 
   const trainerId = sessionStorage.getItem("trainerId");
   console.log("trainerId is:", trainerId);
 
-
-
-  
-
   const fetchTrainerData = async () => {
     try {
-      
       if (!trainerId) {
         console.error("Trainer ID not found in sessionStorage");
         return;
@@ -107,34 +115,32 @@ const TrainerDashboard = () => {
 
   const [numUser, setNumUser] = useState(0);
 
-
   const stats = [
-    { 
-      title: "Assigned Members", 
+    {
+      title: "Assigned Members",
       value: numUser,
       icon: <Users size={24} />,
-      gradient: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)"
+      gradient: "linear-gradient(135deg, #6366f1 0%, #a855f7 100%)",
     },
-    { 
-      title: "Today's Classes", 
+    {
+      title: "Today's Classes",
       value: classScheduleCount || "Nil",
       icon: <Calendar size={24} />,
-      gradient: "linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)"
+      gradient: "linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)",
     },
-    { 
-      title: "Avg Attendance", 
+    {
+      title: "Avg Attendance",
       value: `${totalUserAttendanceTrainerDashboard}%` || "Nil",
       icon: <Activity size={24} />,
-      gradient: "linear-gradient(135deg, #10b981 0%, #34d399 100%)"
+      gradient: "linear-gradient(135deg, #10b981 0%, #34d399 100%)",
     },
-    { 
-      title: "Notifications", 
+    {
+      title: "Notifications",
       value: totalMessagesCount,
       icon: <Bell size={24} />,
-      gradient: "linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)"
+      gradient: "linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%)",
     },
   ];
-
 
   const sidebarStyle = {
     position: "fixed",
@@ -211,20 +217,25 @@ const TrainerDashboard = () => {
 
   const linkStyle = {
     textDecoration: "none",
-    color: "#004085", 
+    color: "#004085",
     fontWeight: "bold",
     fontSize: "18px",
   };
 
-
   const fetchNotificationsToTrainerDashboard = async () => {
     try {
       console.log("Inside the notificationsToTrainerDashboard");
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetchNotificationsToTrainerDashboard/${trainerId}`);
-      console.log("After the response of notificationTrainer:", response.data.count);
+      const response = await axios.get(
+        `${
+          import.meta.env.VITE_API_URL
+        }/fetchNotificationsToTrainerDashboard/${trainerId}`
+      );
+      console.log(
+        "After the response of notificationTrainer:",
+        response.data.count
+      );
 
       setCountNotificationTrainerDashboard(response.data.count);
-      // updateTotalMessages(response.data.count, countAdminMessageTrainerDashboard); // Update total
     } catch (error) {
       console.error("Error at the frontend notificationsToTrainerDashboard");
       toast.error("Error fetching notifications");
@@ -234,61 +245,64 @@ const TrainerDashboard = () => {
   const fetchAdminMessageForTrainerDashboard = async () => {
     try {
       console.log("Inside the fetchAdminMessageForTrainerDashboard");
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetchAdminMessageForTrainerDashboard`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/fetchAdminMessageForTrainerDashboard`
+      );
       console.log("After the response of admin messages:", response.data.count);
 
       setCountAdminMessageTrainerDashboard(response.data.count);
-      // updateTotalMessages(countNotificationTrainerDashboard, response.data.count); 
     } catch (error) {
-      console.error("Error at the frontend fetchAdminMessageForTrainerDashboard");
+      console.error(
+        "Error at the frontend fetchAdminMessageForTrainerDashboard"
+      );
       toast.error("Error fetching admin messages");
     }
   };
 
-  
   useEffect(() => {
-    setTotalMessagesCount(countNotificationTrainerDashboard + countAdminMessageTrainerDashboard);
-  }, [countNotificationTrainerDashboard, countAdminMessageTrainerDashboard]); 
+    setTotalMessagesCount(
+      countNotificationTrainerDashboard + countAdminMessageTrainerDashboard
+    );
+  }, [countNotificationTrainerDashboard, countAdminMessageTrainerDashboard]);
 
-
-  const fetchTodaysClassSchedulingsTrainerDashboard = async()=>{
-    try{
+  const fetchTodaysClassSchedulingsTrainerDashboard = async () => {
+    try {
       console.log("Inside the fetchTodaysClassSchedulingsTrainerDashboard");
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/fetchTodaysClassSchedulingsTrainerDashboard/${trainerId}`)
-      console.log("response.data iss:",response.data);
+      const response = await axios.get(
+        `${
+          import.meta.env.VITE_API_URL
+        }/fetchTodaysClassSchedulingsTrainerDashboard/${trainerId}`
+      );
+      console.log("response.data iss:", response.data);
       const ScheduleCount = response.data.length;
-      console.log("ScheduleCount:",ScheduleCount);
-      
-      setClassScheduleCount(ScheduleCount)
+      console.log("ScheduleCount:", ScheduleCount);
 
-
-      
-    }catch(error){
+      setClassScheduleCount(ScheduleCount);
+    } catch (error) {
       console.error("Error at the fetchTodaysClassSchedulingsTrainerDashboard");
-      
     }
-  }
+  };
 
   const getuserattendance = async () => {
     try {
-      // console.log("inside the getuserattendance frontend");
       const response = await axios.get(
         `${import.meta.env.VITE_API_URL}/getuserattendance/${trainerId}`
       );
-      // console.log("response after getuserattendance:", response.data);
       console.log("response after getuserattendance:", response.data.data);
 
       const totalCount = response.data.data.length;
-     
-      const presentCount  = response.data.data.filter(entry=>entry.status === 'Present').length
-      console.log("presentCount :", presentCount );
 
-      const percentagePresent = (presentCount/totalCount)*100;
-      console.log("percentagePresent:",percentagePresent);
-      
+      const presentCount = response.data.data.filter(
+        (entry) => entry.status === "Present"
+      ).length;
+      console.log("presentCount :", presentCount);
+
+      const percentagePresent = (presentCount / totalCount) * 100;
+      console.log("percentagePresent:", percentagePresent);
+
       const formattedPercentagePresent = percentagePresent.toFixed(2);
-     console.log("formattedPercentagePresent:",formattedPercentagePresent);
-     
+      console.log("formattedPercentagePresent:", formattedPercentagePresent);
+
       setTotalUserAttendanceTrainerDashboard(formattedPercentagePresent);
       setUserAttendanceTrainerDashboard(response.data);
     } catch (error) {
@@ -298,13 +312,10 @@ const TrainerDashboard = () => {
 
   const fetchTrainersUsers = async () => {
     try {
-      // console.log("inside the fetchTrainersUsers frontend");
       const response = await axios.get(
         `${import.meta.env.VITE_API_URL}/get-all-users/${trainerId}`
       );
-      // console.log("response after getting:", response.data);
       const count = response.data.data.length;
-      // console.log("count is :", count);
       setNumUser(count);
     } catch (error) {
       console.error("Error at fetchTrainersUsers function");
@@ -314,18 +325,17 @@ const TrainerDashboard = () => {
     fetchTrainersUsers();
     fetchAllUsersProgressOfTrainer();
     getuserattendance();
-    fetchNotificationsToTrainerDashboard()
-    fetchAdminMessageForTrainerDashboard()
+    fetchNotificationsToTrainerDashboard();
+    fetchAdminMessageForTrainerDashboard();
   }, []);
 
   const fetchAllUsersProgressOfTrainer = async () => {
     try {
-      // console.log("inside the frontend fetchAllUsersProgressOfTrainer");
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/fetchTrainer-all-user-progress/${trainerId}`
+        `${
+          import.meta.env.VITE_API_URL
+        }/fetchTrainer-all-user-progress/${trainerId}`
       );
-
-      // console.log("response in 194:", response.data);
 
       const sortedProgress = response.data.sort((a, b) => {
         const [dayA, monthA, yearA] = a.date.split("/");
@@ -337,36 +347,29 @@ const TrainerDashboard = () => {
         return dateB - dateA;
       });
 
-      // console.log("sortedProgress:", sortedProgress);
-
       const latestTwoProgress = sortedProgress.slice(
         0,
         Math.min(2, sortedProgress.length)
       );
 
-      // console.log("latestTwoProgress:", latestTwoProgress);
       const fitnessGoalAccessed = latestTwoProgress[0].fitnessGoal;
-      // console.log("fitnessGoalAccessed:", fitnessGoalAccessed);
 
       if (fitnessGoalAccessed === "Weight Loss") {
         // Extract BMI values and convert to numbers
         const latestProgressData = latestTwoProgress.map(
           (entry) => entry.progressData
         );
-        // console.log("latestProgressData:", latestProgressData);
 
         const retrievingBmi = latestProgressData.map((data) =>
           parseFloat(data.bmi)
         );
-        // console.log("retrievingBmi:", retrievingBmi);
 
-        setRetrievingBmiChart(retrievingBmi)
+        setRetrievingBmiChart(retrievingBmi);
 
         const idealBmi = 21.75;
 
         // Calculate BMI difference for each entry
         const differencesBmi = retrievingBmi[0] - retrievingBmi[1];
-        // console.log("differencesBmi:", differencesBmi);
 
         // Determine progress
         const initialBmi = retrievingBmi[1]; // Older BMI
@@ -383,9 +386,7 @@ const TrainerDashboard = () => {
         // Calculate improvement percentage towards ideal BMI
         const progressPercentages =
           ((initialBmi - latestBmi) / (initialBmi - idealBmi)) * 100;
-        // console.log("Progress BMI:", progressPercentages, "%");
         const progressPercentage = progressPercentages.toFixed(2);
-        // console.log("Progress Towards Ideal BMI:", progressPercentage, "%");
 
         setBmiDashboardPercentage(progressPercentage);
       } else if (fitnessGoalAccessed === "Muscle Building") {
@@ -408,43 +409,31 @@ const TrainerDashboard = () => {
             (difference / previousValue) *
             100
           ).toFixed(2);
-          // console.log("progressPercentage  is:",progressPercentage  );
 
           return {
             measurement: key,
 
             progressPercentage: `${progressPercentage}%`,
           };
-          // const progressPercentage = progressPercentages.toFixed(2);
-          // console.log("progressPercentage after:",progressPercentage );
         });
-        
 
         const totalProgressPercentages = progressComparison
           .map((item) => parseFloat(item.progressPercentage)) // Convert "%"-string to number
           .reduce((sum, value) => sum + value, 0); // Sum all values
 
-
         const totalProgressPercentage = totalProgressPercentages.toFixed(2);
-        
 
         setMuscleProgressDashboard(totalProgressPercentage);
       } else if (fitnessGoalAccessed === "Endurance") {
-        // console.log("Inside endurance else if");
-
         const latestProgressData = latestTwoProgress.map(
           (entry) => entry.progressData
         );
 
-        // console.log("endurance latestProgressData", latestProgressData);
-
         const maxReps = latestProgressData.map((data) =>
           parseInt(data.maxReps)
         );
-        // console.log("endurance maxReps:", maxReps);
 
         const improvement = ((maxReps[0] - maxReps[1]) / maxReps[1]) * 100;
-        // console.log("endurance improvement:", improvement);
 
         setEnduranceDashboardPercentage(improvement.toFixed(2));
       }
@@ -456,11 +445,11 @@ const TrainerDashboard = () => {
   return (
     <>
       {/* Hamburger Menu Icon */}
-      
 
-
-
-<div className="hamburger-menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+      <div
+        className="hamburger-menu"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
         <div className="menu-bar"></div>
         <div className="menu-bar"></div>
         <div className="menu-bar"></div>
@@ -468,12 +457,19 @@ const TrainerDashboard = () => {
 
       {/* Overlay */}
 
-      <div className={`sidebar-overlay ${isMenuOpen ? 'active' : ''}`} 
-           onClick={() => setIsMenuOpen(false)}></div>
+      <div
+        className={`sidebar-overlay ${isMenuOpen ? "active" : ""}`}
+        onClick={() => setIsMenuOpen(false)}
+      ></div>
 
       {/* Sidebar */}
-      <div className={`glassmorphic-sidebar-trainer ${isMenuOpen ? 'open' : ''}`}>
-        <button className="trainer-profile-button hover-scale" onClick={handleShowModal}>
+      <div
+        className={`glassmorphic-sidebar-trainer ${isMenuOpen ? "open" : ""}`}
+      >
+        <button
+          className="trainer-profile-button hover-scale"
+          onClick={handleShowModal}
+        >
           <Users size={18} />
           Trainer Profile
         </button>
@@ -500,7 +496,6 @@ const TrainerDashboard = () => {
             Communications
           </Link>
 
-
           <Link
             onClick={() => setShowPasswordModal(true)}
             style={linkStyle}
@@ -512,26 +507,27 @@ const TrainerDashboard = () => {
         </div>
       </div>
 
-
-       <TrainerChangePassword
-              show={showPasswordModal}
-              onClose={() => setShowPasswordModal(false)}
-            />
+      <TrainerChangePassword
+        show={showPasswordModal}
+        onClose={() => setShowPasswordModal(false)}
+      />
 
       <div className="trainer-dashboard-container">
         {/* Header */}
         <div className="dashboard-header-trainer">
           {/* <div> */}
-            <h1 className="neon-title">Training Command Center</h1>
-            <p className="dashboard-subtitle">Welcome back, {trainer.username} 👋</p>
+          <h1 className="neon-title">Training Command Center</h1>
+          <p className="dashboard-subtitle">
+            Welcome back, {trainer.username} 👋
+          </p>
           {/* </div> */}
         </div>
 
         {/* Stats Cards */}
         <div className="metrics-grid">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="metric-card"
               style={{ background: stat.gradient }}
             >
@@ -548,7 +544,9 @@ const TrainerDashboard = () => {
           <div className="glassmorphic-card">
             <h3 className="chart-title">Class Attendance Analytics</h3>
             <div className="chart-container">
-              <ClassAttendanceChart attendanceData={userAttendanceTrainerDashboard} />
+              <ClassAttendanceChart
+                attendanceData={userAttendanceTrainerDashboard}
+              />
             </div>
           </div>
 
@@ -559,24 +557,38 @@ const TrainerDashboard = () => {
               {trainer?.specialization === "Weight Loss Coach" && (
                 <div className="metric-box">
                   <h4>BMI Improvement</h4>
-                  <DonutChartSingle memberProgressPercentage={bmiDashboardPercentage} />
-                  <p className="metric-description">{bmiDashboardPercentage}% Progress</p>
+                  <DonutChartSingle
+                    memberProgressPercentage={bmiDashboardPercentage}
+                  />
+                  <p className="metric-description">
+                    {bmiDashboardPercentage}% Progress
+                  </p>
                 </div>
               )}
 
               {trainer?.specialization === "Muscle Building Coach" && (
                 <div className="metric-box">
                   <h4>Muscle Growth</h4>
-                  <DonutChartSingle memberProgressPercentage={muscleProgressDashboard} />
-                  <p className="metric-description" >{muscleProgressDashboard}% Overall Gain</p>
+                  <DonutChartSingle
+                    memberProgressPercentage={muscleProgressDashboard}
+                  />
+                  <p className="metric-description">
+                    {muscleProgressDashboard}% Overall Gain
+                  </p>
                 </div>
               )}
 
               {trainer?.specialization === "Endurance Coach" && (
                 <div className="metric-box">
-                  <h4 style={{color:"green",paddingBottom:"10px"}}>Endurance Boost</h4>
-                  <DonutChartSingle memberProgressPercentage={enduranceDashboardPercentage} />
-                  <p className="metric-description">{enduranceDashboardPercentage}% Progress</p>
+                  <h4 style={{ color: "green", paddingBottom: "10px" }}>
+                    Endurance Boost
+                  </h4>
+                  <DonutChartSingle
+                    memberProgressPercentage={enduranceDashboardPercentage}
+                  />
+                  <p className="metric-description">
+                    {enduranceDashboardPercentage}% Progress
+                  </p>
                 </div>
               )}
             </div>

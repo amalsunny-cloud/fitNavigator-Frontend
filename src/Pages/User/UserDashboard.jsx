@@ -832,7 +832,7 @@ const UserDashboard = () => {
                         <stop
                           offset="100%"
                           stopColor="#f87171"
-                          stopOpacity={0.4}
+                          stopOpacity={0.5}
                         />
                       </linearGradient>
                     </defs>
@@ -840,11 +840,11 @@ const UserDashboard = () => {
                     <XAxis
                       dataKey="name"
                       tick={{ fill: "#9CA3AF" }}
-                      axisLine={{ stroke: "#4B5563" }}
+                      axisLine={{ stroke: "#FFFFFF" }}
                     />
                     <YAxis
                       tick={{ fill: "#9CA3AF" }}
-                      axisLine={{ stroke: "#4B5563" }}
+                      axisLine={{ stroke: "#FFFFFF" }}
                     />
                     <Tooltip
                       contentStyle={{
@@ -919,7 +919,7 @@ const UserDashboard = () => {
                           <stop
                             offset="95%"
                             stopColor={metric.color}
-                            stopOpacity={0.4}
+                            stopOpacity={0.5}
                           />
                         </linearGradient>
                       ))}
@@ -929,11 +929,11 @@ const UserDashboard = () => {
                     <XAxis
                       dataKey="date"
                       tick={{ fill: "#9CA3AF" }}
-                      axisLine={{ stroke: "#4B5563" }}
+                      axisLine={{ stroke: "#FFFFFF" }}
                     />
                     <YAxis
                       tick={{ fill: "#9CA3AF" }}
-                      axisLine={{ stroke: "#4B5563" }}
+                      axisLine={{ stroke: "#FFFFFF" }}
                     />
                     <Tooltip
                       contentStyle={{
