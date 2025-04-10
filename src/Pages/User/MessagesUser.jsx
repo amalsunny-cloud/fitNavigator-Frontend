@@ -197,9 +197,6 @@ const MessagesUser = () => {
           {error && <div className="error-message">{error}</div>}
 
 
-          {/* <div className="img-container-messageuser">
-        <img src={mail} alt="mail" />
-      </div> */}
 
           <div className="tabs-message-user">
             <button

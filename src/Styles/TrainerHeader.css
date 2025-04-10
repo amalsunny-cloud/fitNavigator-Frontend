@@ -1,7 +1,7 @@
 
 .trainer-headers {
+    background: linear-gradient(135deg, #fe4400, #8e48ff);
     /* background: linear-gradient(135deg, #0254ab, #3b0e85); */
-    background: linear-gradient(135deg, #0254ab, #3b0e85);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     position: fixed;

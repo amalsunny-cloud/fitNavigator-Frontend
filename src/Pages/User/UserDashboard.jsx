@@ -960,7 +960,6 @@ const UserDashboard = () => {
                 </ResponsiveContainer>
               ) : (
                 <div className="data-empty-state">
-                  {/* <div className="empty-state-icon">📈</div> */}
                   <p
                     className="empty-state-text"
                     style={{ color: "red", fontSize: "24px" }}

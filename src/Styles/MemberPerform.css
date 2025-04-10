@@ -49,7 +49,6 @@
   
   .user-list li:hover {
     background-color: #6d6d6d;
-    /* background-color: #007bff; */
     color: white;
   }
   
@@ -60,29 +59,7 @@
     background-color: #ffffff;
   }
   
-  /* Buttons inside the PerformanceModal */
-  /* button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
   
-  button:hover {
-    opacity: 0.9;
-  }
-  
-  button:nth-child(1) {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  button:nth-child(2) {
-    background-color: #dc3545;
-    color: white;
-  } */
   
   /* Chart container */
   .chart-container {

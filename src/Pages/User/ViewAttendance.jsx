@@ -290,8 +290,6 @@ const ViewAttendance = () => {
               <span><Calendar color="green" size={24}/>Total Days: {attendanceCount}</span>
               <span>        <CheckCircle color="green" size={24} />Present Days: {totalAttendanceData.present}</span>
               <span>        <XCircle color="red" size={24} />Absent Days: {totalAttendanceData.absent}</span>
-            {/* <div className="streak-info"> */}
-              {/* <h3>Attendance Streaks</h3> */}
               <span>
                 <Flame color="orange" size={24} className="me-2" /> Current Streak: {currentStreak} days
               </span>
