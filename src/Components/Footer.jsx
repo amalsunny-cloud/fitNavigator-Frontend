@@ -39,7 +39,7 @@ function Footer() {
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon icon="gem" className="me-3" />
-                FitNavigator              </h6>
+                Fit-Navigator              </h6>
               <p>
                 Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
                 consectetur adipisicing elit.
@@ -72,14 +72,14 @@ function Footer() {
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
               <p>
                 <MDBIcon icon="home" className="me-2" />
-                New York, NY 10012, US
+                Kerala, India
               </p>
               <p>
                 <MDBIcon icon="envelope" className="me-3" />
-                fitnavigator@example.com
+                fitnavigator@2025.com
               </p>
               <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
+                <MDBIcon icon="phone" className="me-3" /> +91 234 567 88
               </p>
               
             </MDBCol>
@@ -88,7 +88,7 @@ function Footer() {
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2024 Copyright:
+        © 2025 Copyright:
         <a className='text-reset fw-bold text-decoration-none' href=''>
           fitnavigator.com
         </a>
