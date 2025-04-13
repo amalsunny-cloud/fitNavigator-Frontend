@@ -299,9 +299,9 @@ const ViewAttendance = () => {
             {/* </div> */}
             </div>
 
-              <div className="img-for-attendance-user">
-                <img src={people} alt="people" />
-              </div>
+             
+
+              <div className="main-for-calendar">
             <div className="calendar-header">
 
 
@@ -373,6 +373,7 @@ const ViewAttendance = () => {
                   <span>Today</span>
                 </div>
               </div>
+            </div>
             </div>
             <div className="attendance-percentage">
               <h4>Attendance Percentage</h4>

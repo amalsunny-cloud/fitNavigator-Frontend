@@ -212,19 +212,16 @@
   }
   
   .save-button-payment-management:hover {
-    /* background-color: #2563eb; */
     background: #008a05;
   }
   
   .cancel-button-payment-management {
-    /* background-color: #ef4444; */
     background: #d01609;
     color: white;
     border: none;
   }
   
   .cancel-button-payment-management:hover {
-    /* background-color: #dc2626; */
     background: #dd5303 !important;
   }
   
@@ -236,12 +233,6 @@
     align-items: center;
     gap: 0.25rem;
     width: 90px;
-
-
-    /* position: absolute;
-    top: 200px;
-    left: 1040px;
-    width: 100px; */
   }
   
   .status-badges.active {
