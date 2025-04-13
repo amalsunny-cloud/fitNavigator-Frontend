@@ -250,19 +250,19 @@ const CheckMembership = () => {
                     <span className="sstatus-badge active-badge">Active</span>
                     <h4 style={{color:"gold"}}>{membership.planId?.name || "N/A"}</h4>
                     <p>
-                      Duration: {membership.planId?.duration}{" "}
-                      months
+                      Duration: <span style={{color:"#7dd87d"}}> {membership.planId?.duration}{" "}
+                      month(s) </span>
                     </p>
                     <p>
-                      Price: ${membership.planId?.price}
+                      Price: <span style={{color:"#7dd87d"}}>  ${membership.planId?.price}</span>
                     </p>
                     <p>
-                      Start Date:{" "}
-                      {moment(membership.startDate).format("DD-MM-YYYY")}
+                      Start Date: <span style={{color:"#7dd87d"}}>  {" "}
+                      {moment(membership.startDate).format("DD-MM-YYYY")}</span>
                     </p>
                     <p>
-                      Expiry Date:{" "}
-                      {moment(membership.endDate).format("DD-MM-YYYY")}
+                      Expiry Date: <span style={{color:"#7dd87d"}}> {" "}
+                      {moment(membership.endDate).format("DD-MM-YYYY")}</span>
                     </p>
                   </div>
                 ))
@@ -281,19 +281,19 @@ const CheckMembership = () => {
                     </span>
                     <h4 style={{color:"gold"}}>{membership.planId?.name || "N/A"}</h4>
                     <p>
-                      Duration: {membership.planId?.duration}{" "}
-                      months
+                      Duration: <span style={{color:"#f05d23"}}> {membership.planId?.duration}{" "}
+                      month(s) </span>
                     </p>
                     <p>
-                      Price: ${membership.planId?.price}
+                      Price: <span style={{color:"#f05d23"}}> ${membership.planId?.price}</span>
                     </p>
                     <p>
-                      Start Date:{" "}
-                      {moment(membership.startDate).format("DD-MM-YYYY")}
+                      Start Date: <span style={{color:"#f05d23"}}>  {" "}
+                      {moment(membership.startDate).format("DD-MM-YYYY")}</span>
                     </p>
                     <p>
-                      End Date:{" "}
-                      {moment(membership.endDate).format("DD-MM-YYYY")}
+                      End Date: <span style={{color:"#f05d23"}}>  {" "}
+                      {moment(membership.endDate).format("DD-MM-YYYY")}</span>
                     </p>
                   </div>
                 ))}

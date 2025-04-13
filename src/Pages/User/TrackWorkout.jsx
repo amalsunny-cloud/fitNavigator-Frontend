@@ -493,7 +493,7 @@ const TrackWorkout = () => {
 
             {/* bmi gauge chart section */}
             <div className="stats-card-track">
-              <h3>BMI Gauge</h3>
+              <h3>BMI Gauge </h3>
               {gaugeData && gaugeData.length >0 ?(
               <PieChart width={300} height={250}>
                 {/* Semi-circle background */}
@@ -991,7 +991,7 @@ const TrackWorkout = () => {
       <div className="fitness-goal-tracker">
         <h2>Fitness Goal Tracker</h2>
         <div className="goal-selection">
-          <label>Your Fitness Goal</label>
+        <span>🎯 <label>Your Fitness Goal </label></span>
 
           
 

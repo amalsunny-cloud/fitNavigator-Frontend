@@ -316,7 +316,8 @@ max-width: 1000px;
 .plans-table td {
     padding: 12px;
     border-bottom: 1px solid #dee2e6;
-    color: white;
+    color: rgb(199, 255, 202);
+    /* color: white; */
 }
 
 /* Workout specific table */

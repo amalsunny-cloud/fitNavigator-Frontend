@@ -80,6 +80,9 @@
     background: #000;
 
   } */
+
+
+  
   
   .form-container-trainer button {
     padding: 12px 20px;
@@ -138,7 +141,8 @@
   }
 
   .schedule-item span{
-    color: rgb(183, 101, 0);
+    color: rgba(231, 139, 27, 0.825);
+    /* color: rgb(183, 101, 0); */
     font-weight: 600;
   }
   
