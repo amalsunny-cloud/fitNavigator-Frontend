@@ -15,7 +15,6 @@
   
   .feature-item h3 {
     font-size: 1.5rem;
-    /* color: #007bff; */
     color: rgb(134, 130, 121);
     margin-bottom: 10px;
   }
@@ -25,6 +24,3 @@
     color: #555;
   }
 
-  /* .card{
-    width: 400px;
-  } */

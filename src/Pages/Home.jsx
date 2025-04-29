@@ -83,7 +83,7 @@ function Home() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#one" className="fw-bold">
+              <Nav.Link href="#one" className="fw-bold mx-2">
                 Features
               </Nav.Link>
               <NavDropdown
@@ -112,7 +112,7 @@ function Home() {
 
       <div
         className="container-fluid rounded bg-secondary"
-        style={{ height: "90vh", width: "100%", paddingLeft: "90px" }}
+        style={{ width: "100%", paddingLeft: "90px" , paddingBottom:"40px" }}
       >
         <Row className="align-items-center p-4">
           <Col sm={12} md={6}>
@@ -146,31 +146,21 @@ function Home() {
           <Col sm={12} md={6} style={{ paddingLeft: "40px" }}>
             <img
               src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg"
+              
               style={{
-                marginTop: "50px",
-                borderRadius: "16px",
                 width: "100%",
                 maxWidth: "800px",
+                borderRadius: "16px",
                 display: "block",
                 marginLeft: "auto",
+                marginTop:"90px",
                 marginRight: "auto",
-                transform: "perspective(1000px)",
-                boxShadow:
-                  "0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+                objectFit: "cover",
                 border: "4px solid #f59e0b",
                 transition: "all 0.3s ease",
-                cursor: "pointer",
-                overflow: "hidden",
-                objectFit: "cover",
-                height: "500px",
                 filter: "brightness(0.95) contrast(1.1)",
-                hover: {
-                  transform: "scale(1.02) perspective(1000px)",
-                  boxShadow:
-                    "0 32px 64px -12px rgba(0, 0, 0, 0.3), 0 8px 12px -4px rgba(0, 0, 0, 0.65)",
-                  filter: "brightness(1) contrast(1.15)",
-                },
               }}
+              className="img-fluid"
               alt="Athlete lifting weights in modern gym facility"
             />
           </Col>
@@ -178,14 +168,14 @@ function Home() {
       </div>
 
       <div className="col-md-6 features-list w-100 my-5" id="one">
-        <div className="py-16 bg-gray-100">
+        <div className="py-6 bg-gray-100">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.2 }}
             className="container mx-auto px-4"
           >
-            <h1 className="text-4xl font-bold text-center mb-12 text-orange-500">
+            <h1 className="text-4xl font-bold text-center mb-2">
               Our Features
             </h1>
             <div className="flex flex-wrap justify-center gap-6">
