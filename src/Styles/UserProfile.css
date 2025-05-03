@@ -55,7 +55,7 @@
   .profile-picture {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 20%;
     overflow: hidden;
     border: 2px solid #ddd;
     display: flex;
@@ -70,10 +70,7 @@
     object-fit: cover;
   }
   
-  /* .logout-button{
-    background: rgb(196, 105, 2) !important;
-
-  } */
+  
 
   .user-profile .logout-user-profile:hover{
     background: red !important;

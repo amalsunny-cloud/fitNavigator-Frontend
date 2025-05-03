@@ -76,11 +76,15 @@ const AdminProfile = ({ showModal, handleClose }) => {
       // Send FormData to the server
       const response = await axios.put(
         `${import.meta.env.VITE_API_URL}/admin/${adminId}/profile-image`,
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        formData
       );
+      // const response = await axios.put(
+      //   `${import.meta.env.VITE_API_URL}/admin/${adminId}/profile-image`,
+      //   formData,
+      //   {
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //   }
+      // );
 
       // alert(response.data.message); 
       toast.success(response.data.message)
@@ -134,7 +138,7 @@ const AdminProfile = ({ showModal, handleClose }) => {
                   />
                 ) : adminProfile.profileImage ? (
                   <img
-                    src={`${import.meta.env.VITE_API_URL}/${adminProfile.profileImage}`}
+                    src={`${import.meta.env.VITE_API_URL}${adminProfile.profileImage}`}
                     alt="Profile"
                     className="profile-image-admin"
                   />

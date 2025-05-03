@@ -11,27 +11,29 @@ const UserProfile = ({ showModal, handleClose }) => {
   const [userProfile, setUserProfile] = useState({
     username: "",
     purpose: "",
-    profileImage: null, 
+    profileImage: null,
   });
 
-  const [profileImage, setProfileImage] = useState(null); 
-  const [previewImage, setPreviewImage] = useState(null); 
+  const [profileImage, setProfileImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
   const navigate = useNavigate();
   const userId = sessionStorage.getItem("userId");
-  
 
   // Fetch trainer profile on initial load
   useEffect(() => {
     const fetchUserProfile = async () => {
-      try {        
+      try {
         const response = await axios.get(
-         `${import.meta.env.VITE_API_URL}/user/${userId}/profile`
+          `${import.meta.env.VITE_API_URL}/user/${userId}/profile`
         );
 
         const { username, purpose, profileImage } = response.data;
         setUserProfile({ username, purpose, profileImage });
       } catch (error) {
-        console.error("Error fetching trainer profile:", error.response?.data || error.message);
+        console.error(
+          "Error fetching trainer profile:",
+          error.response?.data || error.message
+        );
       }
     };
 
@@ -39,8 +41,6 @@ const UserProfile = ({ showModal, handleClose }) => {
       fetchUserProfile();
     }
   }, [userId]);
-
-  
 
   // Handle image change for preview
   const handleImageChange = (event) => {
@@ -63,16 +63,25 @@ const UserProfile = ({ showModal, handleClose }) => {
 
       // Create FormData object
       const formData = new FormData();
+      console.log("File to upload:", profileImage);
+      console.log("FormData created:", formData);
+
+  
       formData.append("profileImage", profileImage);
 
       // Send FormData to the server
       const response = await axios.put(
         `${import.meta.env.VITE_API_URL}/user/${userId}/profile-image`,
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+        formData
       );
+      // or
+      // const response = await axios.put(
+      //   `${import.meta.env.VITE_API_URL}/user/${userId}/profile-image`,
+      //   formData,
+      //   {
+      //     headers: { "Content-Type": "multipart/form-data" },
+      //   }
+      // );
 
       alert(response.data.message); // Show success message
       setUserProfile((prev) => ({
@@ -81,7 +90,10 @@ const UserProfile = ({ showModal, handleClose }) => {
       }));
       setPreviewImage(null); // Clear the preview
     } catch (error) {
-      console.error("Error updating profile image:", error.response?.data || error.message);
+      console.error(
+        "Error updating profile image:",
+        error.response?.data || error.message
+      );
       alert("Failed to update profile image");
     }
   };
@@ -108,10 +120,16 @@ const UserProfile = ({ showModal, handleClose }) => {
           <div className="profile-picture-container">
             <div className="profile-picture">
               {previewImage ? (
-                <img src={previewImage} alt="Preview" className="profile-image" />
+                <img
+                  src={previewImage}
+                  alt="Preview"
+                  className="profile-image"
+                />
               ) : userProfile.profileImage ? (
                 <img
-                  src={`${import.meta.env.VITE_API_URL}/${userProfile.profileImage}`}
+                  src={`${import.meta.env.VITE_API_URL}${
+                    userProfile.profileImage
+                  }`}
                   alt="Profile"
                   className="profile-image"
                 />
@@ -135,11 +153,12 @@ const UserProfile = ({ showModal, handleClose }) => {
               </label>
             </div>
           </div>
-            
 
           {/* User Details */}
           <h5>{userProfile.username}</h5>
-          <p style={{color:"green",fontWeight:"bold"}}>Goal: {userProfile.purpose}</p>
+          <p style={{ color: "green", fontWeight: "bold" }}>
+            Goal: {userProfile.purpose}
+          </p>
 
           <Button variant="success" onClick={handleSaveImage}>
             Save Image

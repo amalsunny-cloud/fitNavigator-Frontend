@@ -133,7 +133,7 @@ const TrainerProfile = ({ showModal, handleClose }) => {
                   />
                 ) : trainerProfile.profileImage ? (
                   <img
-                    src={`${import.meta.env.VITE_API_URL}/${trainerProfile.profileImage}`}
+                    src={`${import.meta.env.VITE_API_URL}${trainerProfile.profileImage}`}
                     alt="Profile"
                     className="profile-image-trainer"
                   />

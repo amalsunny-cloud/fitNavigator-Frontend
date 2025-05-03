@@ -77,13 +77,14 @@
   .profile-picture-admin {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 20%;
     overflow: hidden;
     border: 2px solid #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f8f9fa;
+    
   }
   
   .profile-image-admin {
